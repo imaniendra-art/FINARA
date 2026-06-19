@@ -118,7 +118,7 @@ const ALL_MODULES = [
     caption: "Kelola data & NIM mahasiswa", 
     section: "master", 
     allowedRoles: ["super_admin", "admin_bauk", "staff_bauk"],
-    color: "text-[#0284c7] bg-[#f0f9ff]",
+    color: "text-[#0284c7] bg-[#f0f9ff] dark:bg-sky-500/10 dark:text-sky-400",
   },
   { 
     title: "Kode Akun", 
@@ -127,7 +127,7 @@ const ALL_MODULES = [
     caption: "Bagan akun perkiraan (COA)", 
     section: "master", 
     allowedRoles: ["super_admin", "admin_bauk"],
-    color: "text-[#0d9488] bg-[#f0fdfa]",
+    color: "text-[#0d9488] bg-[#f0fdfa] dark:bg-teal-500/10 dark:text-teal-400",
   },
   { 
     title: "Jenis Tagihan", 
@@ -136,7 +136,7 @@ const ALL_MODULES = [
     caption: "Kategori tagihan semester", 
     section: "master", 
     allowedRoles: ["super_admin", "admin_bauk"],
-    color: "text-[#ca8a04] bg-[#fefce8]",
+    color: "text-[#ca8a04] bg-[#fefce8] dark:bg-yellow-500/10 dark:text-yellow-400",
   },
   { 
     title: "Tagihan Mahasiswa", 
@@ -145,7 +145,7 @@ const ALL_MODULES = [
     caption: "Distribusi tagihan kuliah", 
     section: "transaksi", 
     allowedRoles: ["super_admin", "admin_bauk", "staff_bauk"],
-    color: "text-[#7c3aed] bg-[#faf5ff]",
+    color: "text-[#7c3aed] bg-[#faf5ff] dark:bg-purple-500/10 dark:text-purple-400",
   },
   { 
     title: "Pembayaran", 
@@ -154,7 +154,7 @@ const ALL_MODULES = [
     caption: "Registrasi pembayaran & kwitansi", 
     section: "transaksi", 
     allowedRoles: ["super_admin", "admin_bauk", "staff_bauk"],
-    color: "text-[#2563eb] bg-[#eff6ff]",
+    color: "text-[#2563eb] bg-[#eff6ff] dark:bg-blue-500/10 dark:text-blue-400",
   },
   { 
     title: "Kas Masuk/Keluar", 
@@ -163,7 +163,7 @@ const ALL_MODULES = [
     caption: "Pencatatan kas operasional", 
     section: "transaksi", 
     allowedRoles: ["super_admin", "admin_bauk", "staff_bauk"],
-    color: "text-[#0891b2] bg-[#ecfeff]",
+    color: "text-[#0891b2] bg-[#ecfeff] dark:bg-cyan-500/10 dark:text-cyan-400",
   },
   { 
     title: "Jurnal Umum", 
@@ -172,7 +172,7 @@ const ALL_MODULES = [
     caption: "Daftar entri jurnal penyesuaian", 
     section: "transaksi", 
     allowedRoles: ["super_admin", "admin_bauk", "staff_bauk", "auditor"],
-    color: "text-[#ea580c] bg-[#fff7ed]",
+    color: "text-[#ea580c] bg-[#fff7ed] dark:bg-orange-500/10 dark:text-orange-400",
   },
   {
     title: "Permintaan Anggaran",
@@ -181,7 +181,7 @@ const ALL_MODULES = [
     caption: "Pengajuan, approval, pencairan, dan LPJ",
     section: "anggaran",
     allowedRoles: ["super_admin", "admin_bauk", "staff_bauk", "unit", "tendik", "dosen", "organisasi", "pimpinan", "auditor"],
-    color: "text-[#047857] bg-[#ecfdf5]",
+    color: "text-[#047857] bg-[#ecfdf5] dark:bg-emerald-500/10 dark:text-emerald-400",
   },
   { 
     title: "Laporan Keuangan", 
@@ -190,7 +190,7 @@ const ALL_MODULES = [
     caption: "Ekspor neraca dan laba rugi", 
     section: "laporan", 
     allowedRoles: ["super_admin", "admin_bauk", "pimpinan", "auditor"],
-    color: "text-[#b91c1c] bg-[#fef2f2]",
+    color: "text-[#b91c1c] bg-[#fef2f2] dark:bg-red-500/10 dark:text-red-400",
   },
   { 
     title: "Buku Besar", 
@@ -199,7 +199,7 @@ const ALL_MODULES = [
     caption: "Rincian mutasi per akun perkiraan", 
     section: "laporan", 
     allowedRoles: ["super_admin", "admin_bauk", "pimpinan", "auditor"],
-    color: "text-[#be185d] bg-[#fdf2f8]",
+    color: "text-[#be185d] bg-[#fdf2f8] dark:bg-pink-500/10 dark:text-pink-400",
   },
   { 
     title: "Neraca Saldo", 
@@ -208,7 +208,7 @@ const ALL_MODULES = [
     caption: "Keseimbangan saldo debit kredit", 
     section: "laporan", 
     allowedRoles: ["super_admin", "admin_bauk", "pimpinan", "auditor"],
-    color: "text-[#4f46e5] bg-[#eef2ff]",
+    color: "text-[#4f46e5] bg-[#eef2ff] dark:bg-indigo-500/10 dark:text-indigo-400",
   },
   { 
     title: "User & Role", 
@@ -217,7 +217,7 @@ const ALL_MODULES = [
     caption: "Manajemen hak akses admin", 
     section: "sistem", 
     allowedRoles: ["super_admin"],
-    color: "text-[#15803d] bg-[#f0fdf4]",
+    color: "text-[#15803d] bg-[#f0fdf4] dark:bg-green-500/10 dark:text-green-400",
   },
   { 
     title: "Pengaturan", 
@@ -226,7 +226,7 @@ const ALL_MODULES = [
     caption: "Profil kampus & nomor kwitansi", 
     section: "sistem", 
     allowedRoles: ["super_admin", "admin_bauk", "pimpinan"],
-    color: "text-[#4b5563] bg-[#f9fafb]",
+    color: "text-[#4b5563] bg-[#f9fafb] dark:bg-slate-500/10 dark:text-slate-400",
   },
 ];
 
@@ -449,7 +449,7 @@ export default function DashboardPage() {
         <div className="space-y-8">
           
           {/* Main workspace navigation (Categorized Card Menus) */}
-          <div className="space-y-7 rounded-[32px] bg-white/70 p-4 ring-1 ring-slate-100 sm:p-6">
+          <div className="space-y-7 rounded-[32px] bg-card/70 dark:bg-slate-900/40 p-4 ring-1 ring-border sm:p-6">
 
             {/* 1. Transaksi BAUK Group */}
             {transactionModules.length > 0 && (
@@ -464,22 +464,22 @@ export default function DashboardPage() {
                       <Link
                         key={item.href}
                         href={item.href}
-                        className="group flex min-h-[112px] items-center justify-between rounded-[24px] bg-white border border-slate-200/80 p-5 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md hover:border-slate-300"
+                        className="group flex min-h-[112px] items-center justify-between rounded-[24px] bg-card border border-border/80 p-5 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md hover:border-border dark:hover:border-primary/50"
                       >
                         <div className="flex items-center gap-4 min-w-0">
                           <div className={`flex h-12 w-12 items-center justify-center rounded-2xl shrink-0 ${item.color}`}>
                             <Icon className="h-6 w-6" />
                           </div>
                           <div className="min-w-0">
-                            <h4 className="text-base font-extrabold text-slate-900 group-hover:text-primary transition-colors leading-snug">
+                            <h4 className="text-base font-extrabold text-foreground group-hover:text-primary transition-colors leading-snug">
                               {item.title}
                             </h4>
-                            <p className="text-sm text-slate-500 font-medium mt-1 leading-snug">
+                            <p className="text-sm text-muted-foreground font-medium mt-1 leading-snug">
                               {item.caption}
                             </p>
                           </div>
                         </div>
-                        <div className="flex h-8 w-8 items-center justify-center rounded-full bg-slate-50 text-slate-400 group-hover:bg-slate-100 group-hover:text-primary transition-colors shrink-0">
+                        <div className="flex h-8 w-8 items-center justify-center rounded-full bg-muted text-muted-foreground group-hover:bg-accent group-hover:text-primary transition-colors shrink-0">
                           <ArrowRight className="w-4 h-4" />
                         </div>
                       </Link>
@@ -502,22 +502,22 @@ export default function DashboardPage() {
                       <Link
                         key={item.href}
                         href={item.href}
-                        className="group flex min-h-[112px] items-center justify-between rounded-[24px] bg-white border border-slate-200/80 p-5 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md hover:border-slate-300"
+                        className="group flex min-h-[112px] items-center justify-between rounded-[24px] bg-card border border-border/80 p-5 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md hover:border-border dark:hover:border-primary/50"
                       >
                         <div className="flex items-center gap-4 min-w-0">
                           <div className={`flex h-12 w-12 items-center justify-center rounded-2xl shrink-0 ${item.color}`}>
                             <Icon className="h-6 w-6" />
                           </div>
                           <div className="min-w-0">
-                            <h4 className="text-base font-extrabold text-slate-900 group-hover:text-primary transition-colors leading-snug">
+                            <h4 className="text-base font-extrabold text-foreground group-hover:text-primary transition-colors leading-snug">
                               {item.title}
                             </h4>
-                            <p className="text-sm text-slate-500 font-medium mt-1 leading-snug">
+                            <p className="text-sm text-muted-foreground font-medium mt-1 leading-snug">
                               {item.caption}
                             </p>
                           </div>
                         </div>
-                        <div className="flex h-8 w-8 items-center justify-center rounded-full bg-slate-50 text-slate-400 group-hover:bg-slate-100 group-hover:text-primary transition-colors shrink-0">
+                        <div className="flex h-8 w-8 items-center justify-center rounded-full bg-muted text-muted-foreground group-hover:bg-accent group-hover:text-primary transition-colors shrink-0">
                           <ArrowRight className="w-4 h-4" />
                         </div>
                       </Link>
@@ -540,22 +540,22 @@ export default function DashboardPage() {
                       <Link
                         key={item.href}
                         href={item.href}
-                        className="group flex min-h-[112px] items-center justify-between rounded-[24px] bg-white border border-slate-200/80 p-5 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md hover:border-slate-300"
+                        className="group flex min-h-[112px] items-center justify-between rounded-[24px] bg-card border border-border/80 p-5 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md hover:border-border dark:hover:border-primary/50"
                       >
                         <div className="flex items-center gap-4 min-w-0">
                           <div className={`flex h-12 w-12 items-center justify-center rounded-2xl shrink-0 ${item.color}`}>
                             <Icon className="h-6 w-6" />
                           </div>
                           <div className="min-w-0">
-                            <h4 className="text-base font-extrabold text-slate-900 group-hover:text-primary transition-colors leading-snug">
+                            <h4 className="text-base font-extrabold text-foreground group-hover:text-primary transition-colors leading-snug">
                               {item.title}
                             </h4>
-                            <p className="text-sm text-slate-500 font-medium mt-1 leading-snug">
+                            <p className="text-sm text-muted-foreground font-medium mt-1 leading-snug">
                               {item.caption}
                             </p>
                           </div>
                         </div>
-                        <div className="flex h-8 w-8 items-center justify-center rounded-full bg-slate-50 text-slate-400 group-hover:bg-slate-100 group-hover:text-primary transition-colors shrink-0">
+                        <div className="flex h-8 w-8 items-center justify-center rounded-full bg-muted text-muted-foreground group-hover:bg-accent group-hover:text-primary transition-colors shrink-0">
                           <ArrowRight className="w-4 h-4" />
                         </div>
                       </Link>
@@ -578,22 +578,22 @@ export default function DashboardPage() {
                       <Link
                         key={item.href}
                         href={item.href}
-                        className="group flex min-h-[112px] items-center justify-between rounded-[24px] bg-white border border-slate-200/80 p-5 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md hover:border-slate-300"
+                        className="group flex min-h-[112px] items-center justify-between rounded-[24px] bg-card border border-border/80 p-5 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md hover:border-border dark:hover:border-primary/50"
                       >
                         <div className="flex items-center gap-4 min-w-0">
                           <div className={`flex h-12 w-12 items-center justify-center rounded-2xl shrink-0 ${item.color}`}>
                             <Icon className="h-6 w-6" />
                           </div>
                           <div className="min-w-0">
-                            <h4 className="text-base font-extrabold text-slate-900 group-hover:text-primary transition-colors leading-snug">
+                            <h4 className="text-base font-extrabold text-foreground group-hover:text-primary transition-colors leading-snug">
                               {item.title}
                             </h4>
-                            <p className="text-sm text-slate-500 font-medium mt-1 leading-snug">
+                            <p className="text-sm text-muted-foreground font-medium mt-1 leading-snug">
                               {item.caption}
                             </p>
                           </div>
                         </div>
-                        <div className="flex h-8 w-8 items-center justify-center rounded-full bg-slate-50 text-slate-400 group-hover:bg-slate-100 group-hover:text-primary transition-colors shrink-0">
+                        <div className="flex h-8 w-8 items-center justify-center rounded-full bg-muted text-muted-foreground group-hover:bg-accent group-hover:text-primary transition-colors shrink-0">
                           <ArrowRight className="w-4 h-4" />
                         </div>
                       </Link>
@@ -616,22 +616,22 @@ export default function DashboardPage() {
                       <Link
                         key={item.href}
                         href={item.href}
-                        className="group flex min-h-[112px] items-center justify-between rounded-[24px] bg-white border border-slate-200/80 p-5 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md hover:border-slate-300"
+                        className="group flex min-h-[112px] items-center justify-between rounded-[24px] bg-card border border-border/80 p-5 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md hover:border-border dark:hover:border-primary/50"
                       >
                         <div className="flex items-center gap-4 min-w-0">
                           <div className={`flex h-12 w-12 items-center justify-center rounded-2xl shrink-0 ${item.color}`}>
                             <Icon className="h-6 w-6" />
                           </div>
                           <div className="min-w-0">
-                            <h4 className="text-base font-extrabold text-slate-900 group-hover:text-primary transition-colors leading-snug">
+                            <h4 className="text-base font-extrabold text-foreground group-hover:text-primary transition-colors leading-snug">
                               {item.title}
                             </h4>
-                            <p className="text-sm text-slate-500 font-medium mt-1 leading-snug">
+                            <p className="text-sm text-muted-foreground font-medium mt-1 leading-snug">
                               {item.caption}
                             </p>
                           </div>
                         </div>
-                        <div className="flex h-8 w-8 items-center justify-center rounded-full bg-slate-50 text-slate-400 group-hover:bg-slate-100 group-hover:text-primary transition-colors shrink-0">
+                        <div className="flex h-8 w-8 items-center justify-center rounded-full bg-muted text-muted-foreground group-hover:bg-accent group-hover:text-primary transition-colors shrink-0">
                           <ArrowRight className="w-4 h-4" />
                         </div>
                       </Link>
@@ -647,15 +647,15 @@ export default function DashboardPage() {
         <div className="space-y-6">
           
           {/* Quick Actions Panel */}
-          <div className="rounded-[28px] bg-white p-6 border border-slate-100 shadow-2xs">
+          <div className="rounded-[28px] bg-card p-6 border border-border shadow-sm">
             <div className="mb-5">
-              <span className="text-xs font-bold uppercase tracking-widest text-slate-400">Aksi Cepat</span>
-              <h3 className="mt-1 text-xl font-black text-slate-900">Transaksi Kas</h3>
+              <span className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Aksi Cepat</span>
+              <h3 className="mt-1 text-xl font-black text-card-foreground">Transaksi Kas</h3>
             </div>
             <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-1">
               <Link
                 href="/cash-transactions?action=create&type=cash_in"
-                className="group flex min-h-[104px] items-center justify-between rounded-3xl border border-emerald-100 bg-emerald-50 px-5 py-5 text-emerald-900 transition hover:-translate-y-0.5 hover:bg-emerald-100 hover:shadow-md"
+                className="group flex min-h-[104px] items-center justify-between rounded-3xl border border-emerald-200 bg-emerald-50 px-5 py-5 text-emerald-900 transition hover:-translate-y-0.5 hover:bg-emerald-100 hover:shadow-md dark:border-emerald-500/30 dark:bg-emerald-500/10 dark:text-emerald-100 dark:hover:bg-emerald-500/20"
               >
                 <div className="flex items-center gap-4">
                   <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-600 text-white shadow-sm">
@@ -663,15 +663,15 @@ export default function DashboardPage() {
                   </div>
                   <div>
                     <p className="text-base font-black">Kas Masuk</p>
-                    <p className="mt-1 text-sm font-semibold text-emerald-700">Catat penerimaan dana</p>
+                    <p className="mt-1 text-sm font-semibold text-emerald-700 dark:text-emerald-400">Catat penerimaan dana</p>
                   </div>
                 </div>
-                <ArrowRight className="h-5 w-5 text-emerald-700 transition group-hover:translate-x-1" />
+                <ArrowRight className="h-5 w-5 text-emerald-700 dark:text-emerald-400 transition group-hover:translate-x-1" />
               </Link>
  
               <Link
                 href="/cash-transactions?action=create&type=cash_out"
-                className="group flex min-h-[104px] items-center justify-between rounded-3xl border border-rose-100 bg-rose-50 px-5 py-5 text-rose-900 transition hover:-translate-y-0.5 hover:bg-rose-100 hover:shadow-md"
+                className="group flex min-h-[104px] items-center justify-between rounded-3xl border border-rose-200 bg-rose-50 px-5 py-5 text-rose-900 transition hover:-translate-y-0.5 hover:bg-rose-100 hover:shadow-md dark:border-rose-500/30 dark:bg-rose-500/10 dark:text-rose-100 dark:hover:bg-rose-500/20"
               >
                 <div className="flex items-center gap-4">
                   <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-rose-600 text-white shadow-sm">
@@ -679,19 +679,19 @@ export default function DashboardPage() {
                   </div>
                   <div>
                     <p className="text-base font-black">Kas Keluar</p>
-                    <p className="mt-1 text-sm font-semibold text-rose-700">Catat pembayaran operasional</p>
+                    <p className="mt-1 text-sm font-semibold text-rose-700 dark:text-rose-400">Catat pembayaran operasional</p>
                   </div>
                 </div>
-                <ArrowRight className="h-5 w-5 text-rose-700 transition group-hover:translate-x-1" />
+                <ArrowRight className="h-5 w-5 text-rose-700 dark:text-rose-400 transition group-hover:translate-x-1" />
               </Link>
             </div>
           </div>
 
           {/* Polished MD3 Finance Trend Chart */}
-          <div className="flex flex-col rounded-[28px] bg-white p-5 shadow-2xs border border-slate-100">
-            <span className="text-[9px] font-bold uppercase tracking-widest text-slate-400">Tren Keuangan</span>
-            <h3 className="mt-1 text-sm font-extrabold text-slate-800">Pemasukan vs Pengeluaran</h3>
-            <p className="text-[10px] text-slate-400 font-medium">Rekapitulasi 6 bulan terakhir</p>
+          <div className="flex flex-col rounded-[28px] bg-card p-5 shadow-sm border border-border">
+            <span className="text-[9px] font-bold uppercase tracking-widest text-muted-foreground">Tren Keuangan</span>
+            <h3 className="mt-1 text-sm font-extrabold text-card-foreground">Pemasukan vs Pengeluaran</h3>
+            <p className="text-[10px] text-muted-foreground font-medium">Rekapitulasi 6 bulan terakhir</p>
 
             <div className="mt-6 flex min-h-[140px] flex-1 items-end gap-2.5 px-2">
               {monthlyData.length ? (
@@ -709,32 +709,32 @@ export default function DashboardPage() {
                         title={`Pengeluaran ${formatCurrency(item.expense)}`}
                       />
                     </div>
-                    <span className="text-[9px] font-bold text-slate-400 mt-1">{item.label}</span>
+                    <span className="text-[9px] font-bold text-muted-foreground mt-1">{item.label}</span>
                   </div>
                 ))
               ) : (
-                <div className="flex flex-1 items-center justify-center text-xs text-slate-400 py-10">
+                <div className="flex flex-1 items-center justify-center text-xs text-muted-foreground py-10">
                   {dashboardQuery.isLoading ? "Memuat grafik..." : "Belum ada data grafik."}
                 </div>
               )}
             </div>
 
-            <div className="mt-4 flex gap-4 border-t border-slate-50 pt-3 text-[10px] font-semibold">
+            <div className="mt-4 flex gap-4 border-t border-border pt-3 text-[10px] font-semibold">
               <div className="flex items-center gap-1.5">
                 <div className="h-2.5 w-2.5 rounded-full bg-primary" />
-                <span className="text-slate-500">Pemasukan</span>
+                <span className="text-muted-foreground">Pemasukan</span>
               </div>
               <div className="flex items-center gap-1.5">
                 <div className="h-2.5 w-2.5 rounded-full bg-rose-400" />
-                <span className="text-slate-500">Pengeluaran</span>
+                <span className="text-muted-foreground">Pengeluaran</span>
               </div>
             </div>
           </div>
 
           {/* Receivable Distribution Panel */}
-          <div className="rounded-[28px] bg-white p-5 shadow-2xs border border-slate-100">
-            <span className="text-[9px] font-bold uppercase tracking-widest text-slate-400">Distribusi Tagihan</span>
-            <h3 className="mt-1 text-sm font-extrabold text-slate-800">Piutang Berdasarkan Status</h3>
+          <div className="rounded-[28px] bg-card p-5 shadow-sm border border-border">
+            <span className="text-[9px] font-bold uppercase tracking-widest text-muted-foreground">Distribusi Tagihan</span>
+            <h3 className="mt-1 text-sm font-extrabold text-card-foreground">Piutang Berdasarkan Status</h3>
 
             <div className="mt-5 space-y-4">
               {receivableStatus.length ? (
@@ -747,7 +747,7 @@ export default function DashboardPage() {
                       <div className="mb-2 flex items-center justify-between">
                         <div className="flex items-center gap-2">
                           <div className="h-2.5 w-2.5 rounded-full" style={{ backgroundColor: colors.color }} />
-                          <span className="font-bold text-slate-700">{statusLabels[item.status]}</span>
+                          <span className="font-bold text-card-foreground">{statusLabels[item.status]}</span>
                         </div>
                         <div className="flex items-center gap-2 font-bold">
                           <span
@@ -756,16 +756,16 @@ export default function DashboardPage() {
                           >
                             {item.count.toLocaleString("id-ID")} tagihan
                           </span>
-                          <span className="text-slate-400">{percent}%</span>
+                          <span className="text-muted-foreground">{percent}%</span>
                         </div>
                       </div>
-                      <div className="h-2 overflow-hidden rounded-full bg-slate-50 border border-slate-100">
+                      <div className="h-2 overflow-hidden rounded-full bg-muted border border-border">
                         <div
                           className="h-full rounded-full transition-all duration-300"
                           style={{ width: `${percent}%`, backgroundColor: colors.color }}
                         />
                       </div>
-                      <p className="mt-1.5 text-[10px] font-bold text-slate-400">
+                      <p className="mt-1.5 text-[10px] font-bold text-muted-foreground">
                         {formatCurrency(item.total)}
                       </p>
                     </div>
@@ -777,10 +777,10 @@ export default function DashboardPage() {
             </div>
 
             {/* Total Active Receivables Footer block */}
-            <div className="mt-5 rounded-2xl bg-slate-50 px-4 py-3.5 border border-slate-100">
+            <div className="mt-5 rounded-2xl bg-muted px-4 py-3.5 border border-border">
               <div className="flex items-center justify-between gap-3 text-xs">
-                <span className="font-bold text-slate-500">Total piutang aktif</span>
-                <span className="font-extrabold text-slate-900 text-sm">{formatCurrency(summary.totalReceivable)}</span>
+                <span className="font-bold text-muted-foreground">Total piutang aktif</span>
+                <span className="font-extrabold text-foreground text-sm">{formatCurrency(summary.totalReceivable)}</span>
               </div>
             </div>
           </div>

@@ -6,6 +6,7 @@ import { ReactNode } from "react";
 import Link from "next/link";
 import { LogOut } from "lucide-react";
 import { Breadcrumb } from "./Breadcrumb";
+import { ModeToggle } from "@/components/mode-toggle";
 
 export function DashboardLayout({ children }: { children: ReactNode }) {
   const { data: session, status } = useSession({
@@ -32,11 +33,11 @@ export function DashboardLayout({ children }: { children: ReactNode }) {
   }
 
   return (
-    <div className="min-h-screen bg-[#eef3f8] text-slate-900 flex flex-col font-sans">
-      <div className="pointer-events-none fixed inset-x-0 top-0 h-80 bg-[radial-gradient(circle_at_top_left,rgba(56,189,248,0.14),transparent_38%),radial-gradient(circle_at_top_right,rgba(16,185,129,0.12),transparent_34%)]" />
+    <div className="min-h-screen bg-background text-foreground flex flex-col font-sans">
+      <div className="pointer-events-none fixed inset-x-0 top-0 h-80 bg-[radial-gradient(circle_at_top_left,rgba(56,189,248,0.14),transparent_38%),radial-gradient(circle_at_top_right,rgba(16,185,129,0.12),transparent_34%)] dark:opacity-20" />
       
       {/* Top App Bar Header */}
-      <header className="sticky top-0 z-40 w-full border-b border-white/70 bg-white/90 backdrop-blur-xl shadow-[0_10px_30px_-28px_rgba(15,41,66,0.5)]">
+      <header className="sticky top-0 z-40 w-full border-b border-border/70 bg-background/90 backdrop-blur-xl shadow-sm">
         <div className="flex h-16 w-full max-w-[1600px] mx-auto items-center justify-between px-4 sm:px-6 lg:px-8">
           
           {/* Left: Brand Logo */}
@@ -56,16 +57,17 @@ export function DashboardLayout({ children }: { children: ReactNode }) {
 
           {/* Right: Profile Badge */}
           <div className="flex items-center gap-3">
+            <ModeToggle />
             {/* User profile card */}
-            <div className="flex items-center gap-2 rounded-2xl bg-slate-50 border border-slate-100 p-1 pr-3 shadow-2xs">
+            <div className="flex items-center gap-2 rounded-2xl bg-muted border border-border p-1 pr-3 shadow-sm">
               <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-primary text-white text-[11px] font-bold">
                 {session?.user?.name ? session.user.name.charAt(0).toUpperCase() : "U"}
               </div>
               <div className="hidden md:flex flex-col text-left">
-                <span className="text-xs font-extrabold text-slate-700 leading-none truncate max-w-[96px]">
+                <span className="text-xs font-extrabold text-foreground leading-none truncate max-w-[96px]">
                   {session?.user?.name || "User"}
                 </span>
-                <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wide mt-0.5 truncate max-w-[96px]">
+                <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-wide mt-0.5 truncate max-w-[96px]">
                   {session?.user?.role?.replace("_", " ")}
                 </span>
               </div>
@@ -74,7 +76,7 @@ export function DashboardLayout({ children }: { children: ReactNode }) {
             {/* Log Out */}
             <button
               onClick={() => signOut({ callbackUrl: "/login" })}
-              className="flex h-10 px-3 items-center justify-center gap-1.5 rounded-2xl bg-white border border-slate-200 text-slate-600 font-bold text-sm shadow-2xs transition hover:bg-rose-50 hover:text-rose-600 hover:border-rose-100 cursor-pointer active:scale-95"
+              className="flex h-10 px-3 items-center justify-center gap-1.5 rounded-2xl bg-card border border-border text-muted-foreground font-bold text-sm shadow-sm transition hover:bg-destructive/10 hover:text-destructive hover:border-destructive/20 cursor-pointer active:scale-95"
               aria-label="Keluar"
             >
               <LogOut className="h-3.5 w-3.5" />
@@ -94,9 +96,9 @@ export function DashboardLayout({ children }: { children: ReactNode }) {
       </div>
 
       {/* Watermark Footer */}
-      <footer className="sticky bottom-0 w-full border-t border-white/70 bg-white/90 backdrop-blur-xl shadow-[0_-10px_30px_-28px_rgba(15,41,66,0.5)] z-40 shrink-0">
+      <footer className="sticky bottom-0 w-full border-t border-border/70 bg-background/90 backdrop-blur-xl shadow-sm z-40 shrink-0">
         <div className="flex h-16 w-full max-w-[1600px] mx-auto items-center justify-center px-4 sm:px-6 md:px-12">
-          <p className="text-[10px] font-bold text-slate-400 uppercase select-none">
+          <p className="text-[10px] font-bold text-muted-foreground uppercase select-none">
             PUSDATIN - STIMI YAPMI MAKASSAR &copy; {new Date().getFullYear()}
           </p>
         </div>

@@ -827,7 +827,7 @@ export default function JournalsPage() {
       )}
 
       {showImport && canCreate && (
-        <Card className="border-indigo-100 bg-white/80 backdrop-blur-md shadow-md animate-in fade-in slide-in-from-top-4 duration-300">
+        <Card className="border-indigo-500/20 bg-card/80 backdrop-blur-md shadow-md animate-in fade-in slide-in-from-top-4 duration-300">
           <CardHeader className="pb-3 border-b border-slate-100">
             <CardTitle className="text-lg font-bold text-slate-800 flex items-center gap-2">
               <FileSpreadsheet className="h-5 w-5 text-indigo-600" />
@@ -899,7 +899,7 @@ export default function JournalsPage() {
             {importPreview && (
               <div className="space-y-4 animate-fade-in">
                 {/* Stats Panel */}
-                <div className="grid gap-3 grid-cols-3 bg-white p-4 rounded-xl border border-slate-100 shadow-sm">
+                <div className="grid gap-3 grid-cols-3 bg-card p-4 rounded-xl border border-border shadow-sm">
                   <div className="text-center p-3 rounded-lg bg-slate-50 border border-slate-100">
                     <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Total Entri</p>
                     <p className="text-2xl font-bold text-slate-800 mt-1">{importPreview.summary.total}</p>
@@ -973,7 +973,7 @@ export default function JournalsPage() {
 
                         {/* Collapsible Body */}
                         {isExpanded && (
-                          <div className="border-t border-slate-100 bg-white/90 p-4 space-y-3">
+                          <div className="border-t border-border bg-card/90 p-4 space-y-3">
                             <div className="overflow-x-auto rounded-lg border border-slate-100">
                               <table className="w-full text-xs">
                                 <thead className="bg-slate-50 border-b border-slate-100 text-left text-slate-500 font-medium">

@@ -635,13 +635,13 @@ export default function StudentsPage() {
                 </div>
 
                 {confirmImportMutation.error && (
-                  <div className="rounded-md border border-red-100 bg-red-50 p-3 text-sm text-red-600">
+                  <div className="rounded-md border border-destructive/20 bg-destructive/10 p-3 text-sm text-destructive">
                     {confirmImportMutation.error.message}
                   </div>
                 )}
 
                 {importResult && (
-                  <div className="grid gap-3 rounded-md border border-emerald-100 bg-emerald-50 p-3 text-sm md:grid-cols-4">
+                  <div className="grid gap-3 rounded-md border border-emerald-500/20 bg-emerald-500/10 p-3 text-sm md:grid-cols-4">
                     <div>Dibuat: <strong>{importResult.summary.created}</strong></div>
                     <div>Diupdate: <strong>{importResult.summary.updated}</strong></div>
                     <div>Dilewati: <strong>{importResult.summary.skipped}</strong></div>
@@ -651,7 +651,7 @@ export default function StudentsPage() {
 
                 <div className="max-h-96 overflow-auto">
                   <table className="w-full text-sm">
-                    <thead className="sticky top-0 border-b bg-white text-left text-slate-500">
+                    <thead className="sticky top-0 border-b bg-card text-left text-muted-foreground">
                       <tr>
                         <th className="py-2 pr-4 font-medium">Baris</th>
                         <th className="py-2 pr-4 font-medium">NIM</th>
@@ -670,11 +670,11 @@ export default function StudentsPage() {
                           <td className="py-3 pr-4">{row.data.entryYear || "-"}</td>
                           <td className="py-3 pr-4">
                             {row.errors.length > 0 ? (
-                              <span className="text-red-600">Error</span>
+                              <span className="text-destructive">Error</span>
                             ) : row.exists ? (
-                              <span className="text-amber-700">NIM sudah ada</span>
+                              <span className="text-amber-600 dark:text-amber-400">NIM sudah ada</span>
                             ) : (
-                              <span className="text-emerald-700">Siap import</span>
+                              <span className="text-emerald-600 dark:text-emerald-400">Siap import</span>
                             )}
                           </td>
                           <td className="py-3 pr-4">
@@ -865,7 +865,7 @@ export default function StudentsPage() {
                   </Button>
                 </DialogFooter>
                 {saveMutation.error && (
-                  <div className="md:col-span-4 rounded-md border border-red-100 bg-red-50 p-3 text-sm text-red-600">
+                  <div className="md:col-span-4 rounded-md border border-destructive/20 bg-destructive/10 p-3 text-sm text-destructive">
                     {saveMutation.error.message}
                   </div>
                 )}
@@ -882,7 +882,7 @@ export default function StudentsPage() {
         <CardContent>
           <div className="grid gap-3 md:grid-cols-[1.4fr_0.8fr_1fr_0.8fr_auto]">
             <div className="relative">
-              <Search className="pointer-events-none absolute left-2.5 top-2 h-4 w-4 text-slate-400" />
+              <Search className="pointer-events-none absolute left-2.5 top-2 h-4 w-4 text-muted-foreground" />
               <Input
                 value={filters.search}
                 onChange={(event) => updateFilter("search", event.target.value)}
@@ -938,7 +938,7 @@ export default function StudentsPage() {
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
             <CardTitle>Daftar Mahasiswa</CardTitle>
             {!isLoading && !error && (
-              <div className="flex items-center gap-2 text-xs text-slate-500">
+              <div className="flex items-center gap-2 text-xs text-muted-foreground">
                 <span>Tampilkan:</span>
                 <select
                   value={rowsPerPage}
@@ -955,10 +955,10 @@ export default function StudentsPage() {
           </div>
         </CardHeader>
         <CardContent>
-          {isLoading && <p className="text-sm text-slate-500">Memuat mahasiswa...</p>}
-          {error && <p className="text-sm text-red-600">{error.message}</p>}
+          {isLoading && <p className="text-sm text-muted-foreground">Memuat mahasiswa...</p>}
+          {error && <p className="text-sm text-destructive">{error.message}</p>}
           {deactivateMutation.error && (
-            <div className="mb-3 rounded-md border border-red-100 bg-red-50 p-3 text-sm text-red-600">
+            <div className="mb-3 rounded-md border border-destructive/20 bg-destructive/10 p-3 text-sm text-destructive">
               {deactivateMutation.error.message}
             </div>
           )}
@@ -981,13 +981,13 @@ export default function StudentsPage() {
                 <TableBody>
                     {paginatedStudents.map((student, index) => (
                       <TableRow key={student._id}>
-                        <TableCell className="text-slate-500">{((currentPage - 1) * rowsPerPage) + index + 1}</TableCell>
-                        <TableCell className="font-medium text-slate-900">{student.nim}</TableCell>
+                        <TableCell className="text-muted-foreground">{((currentPage - 1) * rowsPerPage) + index + 1}</TableCell>
+                        <TableCell className="font-medium text-foreground">{student.nim}</TableCell>
                         <TableCell className="min-w-48 whitespace-normal">{student.name}</TableCell>
                         <TableCell className="text-slate-600">{student.programStudy}</TableCell>
                         <TableCell className="text-slate-600">{student.entryYear}</TableCell>
                         <TableCell>
-                          <Badge variant="outline" className={student.biayaPendidikan === "KIP" ? "text-indigo-700 font-semibold" : "text-slate-600"}>
+                          <Badge variant="outline" className={student.biayaPendidikan === "KIP" ? "text-indigo-600 dark:text-indigo-400 font-semibold border-indigo-200 dark:border-indigo-500/30" : "text-muted-foreground"}>
                             {student.biayaPendidikan}
                           </Badge>
                         </TableCell>
@@ -1021,7 +1021,7 @@ export default function StudentsPage() {
                     ))}
                     {data?.students.length === 0 && (
                       <TableRow>
-                        <TableCell className="py-6 text-center text-slate-500" colSpan={8}>
+                        <TableCell className="py-6 text-center text-muted-foreground" colSpan={8}>
                           Tidak ada mahasiswa yang sesuai filter.
                         </TableCell>
                       </TableRow>
@@ -1032,7 +1032,7 @@ export default function StudentsPage() {
               {/* Pagination Controls */}
               {data?.students && data.students.length > 0 && (
                 <div className="flex flex-col sm:flex-row items-center justify-between gap-4 border-t pt-4 mt-4">
-                  <div className="text-xs text-slate-500">
+                  <div className="text-xs text-muted-foreground">
                     Menampilkan <strong>{((currentPage - 1) * rowsPerPage) + 1}</strong> -{" "}
                     <strong>{Math.min(currentPage * rowsPerPage, data.students.length)}</strong> dari{" "}
                     <strong>{data.students.length}</strong> entri

@@ -416,7 +416,7 @@ export default function BillsPage() {
         </CardHeader>
         <CardContent className="space-y-4">
           {!canGenerateBulk && (
-            <div className="rounded-md border border-amber-100 bg-amber-50 p-3 text-sm text-amber-700">
+            <div className="rounded-md border border-amber-500/20 bg-amber-500/10 p-3 text-sm text-amber-700 dark:text-amber-400">
               Role Anda tidak memiliki akses generate tagihan massal.
             </div>
           )}
@@ -643,7 +643,7 @@ export default function BillsPage() {
                 </Button>
               </div>
               {previewQuery.error && (
-                <div className="md:col-span-4 rounded-md border border-red-100 bg-red-50 p-3 text-sm text-red-600">
+                <div className="md:col-span-4 rounded-md border border-destructive/20 bg-destructive/10 p-3 text-sm text-destructive">
                   {previewQuery.error.message}
                 </div>
               )}
@@ -654,25 +654,25 @@ export default function BillsPage() {
             <div className="space-y-3 rounded-lg border p-3">
               <div className="grid gap-3 md:grid-cols-4">
                 <div>
-                  <p className="text-xs text-slate-500">Total Preview</p>
-                  <p className="text-lg font-semibold text-slate-900">{previewQuery.data.summary.total}</p>
+                  <p className="text-xs text-muted-foreground">Total Preview</p>
+                  <p className="text-lg font-semibold text-foreground">{previewQuery.data.summary.total}</p>
                 </div>
                 <div>
-                  <p className="text-xs text-slate-500">Siap Dibuat</p>
-                  <p className="text-lg font-semibold text-emerald-700">{previewQuery.data.summary.available}</p>
+                  <p className="text-xs text-muted-foreground">Siap Dibuat</p>
+                  <p className="text-lg font-semibold text-emerald-600 dark:text-emerald-400">{previewQuery.data.summary.available}</p>
                 </div>
                 <div>
-                  <p className="text-xs text-slate-500">Duplikat</p>
-                  <p className="text-lg font-semibold text-amber-700">{previewQuery.data.summary.duplicate}</p>
+                  <p className="text-xs text-muted-foreground">Duplikat</p>
+                  <p className="text-lg font-semibold text-amber-600 dark:text-amber-400">{previewQuery.data.summary.duplicate}</p>
                 </div>
                 <div>
-                  <p className="text-xs text-slate-500">Dipilih</p>
-                  <p className="text-lg font-semibold text-slate-900">{selectedCount}</p>
+                  <p className="text-xs text-muted-foreground">Dipilih</p>
+                  <p className="text-lg font-semibold text-foreground">{selectedCount}</p>
                 </div>
               </div>
 
               <div className="flex flex-wrap items-center justify-between gap-3 border-t pt-3">
-                <label className="flex items-center gap-2 text-sm text-slate-700">
+                <label className="flex items-center gap-2 text-sm text-muted-foreground">
                   <input
                     type="checkbox"
                     checked={availablePreviewIds.length > 0 && selectedCount === availablePreviewIds.length}
@@ -691,13 +691,13 @@ export default function BillsPage() {
               </div>
 
               {bulkGenerateMutation.error && (
-                <div className="rounded-md border border-red-100 bg-red-50 p-3 text-sm text-red-600">
+                <div className="rounded-md border border-destructive/20 bg-destructive/10 p-3 text-sm text-destructive">
                   {bulkGenerateMutation.error.message}
                 </div>
               )}
 
               {generateResult && (
-                <div className="grid gap-3 rounded-md border border-emerald-100 bg-emerald-50 p-3 text-sm md:grid-cols-3">
+                <div className="grid gap-3 rounded-md border border-emerald-500/20 bg-emerald-500/10 p-3 text-sm text-emerald-700 dark:text-emerald-400 md:grid-cols-3">
                   <div>Berhasil dibuat: <strong>{generateResult.summary.created}</strong></div>
                   <div>Dilewati duplikat: <strong>{generateResult.summary.skipped}</strong></div>
                   <div>Gagal: <strong>{generateResult.summary.failed}</strong></div>
@@ -706,7 +706,7 @@ export default function BillsPage() {
 
               <div className="max-h-96 overflow-auto">
                 <table className="w-full text-sm">
-                  <thead className="sticky top-0 border-b bg-white text-left text-slate-500">
+                  <thead className="sticky top-0 border-b bg-card text-left text-muted-foreground">
                     <tr>
                       <th className="py-2 pr-4 font-medium">Pilih</th>
                       <th className="py-2 pr-4 font-medium">NIM</th>
@@ -735,9 +735,9 @@ export default function BillsPage() {
                         <td className="py-3 pr-4">{student.className}</td>
                         <td className="py-3 pr-4">
                           {student.canGenerate ? (
-                            <span className="text-emerald-700">Siap dibuat</span>
+                            <span className="text-emerald-600 dark:text-emerald-400">Siap dibuat</span>
                           ) : (
-                            <span className="text-amber-700">{student.reason}</span>
+                            <span className="text-amber-600 dark:text-amber-400">{student.reason}</span>
                           )}
                         </td>
                       </tr>
@@ -901,7 +901,7 @@ export default function BillsPage() {
                 </Button>
               </div>
               {mutation.error && (
-                <div className="md:col-span-4 rounded-md border border-red-100 bg-red-50 p-3 text-sm text-red-600">
+                <div className="md:col-span-4 rounded-md border border-destructive/20 bg-destructive/10 p-3 text-sm text-destructive">
                   {mutation.error.message}
                 </div>
               )}
@@ -919,7 +919,7 @@ export default function BillsPage() {
             {!isLoading && !error && (
               <div className="flex flex-wrap items-center gap-3">
                 <div className="relative w-64">
-                  <Search className="pointer-events-none absolute left-2.5 top-2.5 h-4 w-4 text-slate-400" />
+                  <Search className="pointer-events-none absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
                   <Input
                     type="text"
                     placeholder="Cari mahasiswa, NIM, jenis..."
@@ -929,7 +929,7 @@ export default function BillsPage() {
                   />
                 </div>
                 
-                <div className="flex items-center gap-2 text-xs text-slate-500">
+                <div className="flex items-center gap-2 text-xs text-muted-foreground">
                   <span>Tampilkan:</span>
                   <select
                     value={rowsPerPage}
@@ -948,18 +948,18 @@ export default function BillsPage() {
         </CardHeader>
         <CardContent>
           {isLoading && (
-            <p className="flex items-center gap-2 text-sm text-slate-500">
+            <p className="flex items-center gap-2 text-sm text-muted-foreground">
               <Users className="size-4 animate-pulse" />
               Memuat tagihan...
             </p>
           )}
-          {error && <p className="text-sm text-red-600">{error.message}</p>}
+          {error && <p className="text-sm text-destructive">{error.message}</p>}
           
           {!isLoading && !error && (
             <>
               <div className="overflow-x-auto">
                 <table className="w-full text-sm">
-                  <thead className="border-b text-left text-slate-500">
+                  <thead className="border-b text-left text-muted-foreground">
                     <tr>
                       <th className="py-2 pr-4 font-medium">Mahasiswa</th>
                       <th className="py-2 pr-4 font-medium">Jenis</th>
@@ -972,30 +972,30 @@ export default function BillsPage() {
                   </thead>
                   <tbody>
                     {paginatedBills.map((bill) => (
-                      <tr key={bill._id} className="border-b last:border-0 hover:bg-slate-50/50 transition-colors">
-                        <td className="py-3 pr-4 font-medium text-slate-900">
+                      <tr key={bill._id} className="border-b last:border-0 hover:bg-muted/50 transition-colors">
+                        <td className="py-3 pr-4 font-medium text-foreground">
                           {bill.studentId ? (
                             <div>
                               <div>{bill.studentId.name}</div>
-                              <div className="text-xs text-slate-500 font-mono">{bill.studentId.nim}</div>
+                              <div className="text-xs text-muted-foreground font-mono">{bill.studentId.nim}</div>
                             </div>
                           ) : (
                             "-"
                           )}
                         </td>
-                        <td className="py-3 pr-4 text-slate-600">{bill.feeTypeId?.name || "-"}</td>
-                        <td className="py-3 pr-4 text-slate-600">{bill.academicYear} / {bill.semester}</td>
-                        <td className="py-3 pr-4 font-medium text-slate-900">{formatCurrency(bill.amount - bill.discount)}</td>
-                        <td className="py-3 pr-4 text-emerald-700 font-semibold">{formatCurrency(bill.paidAmount)}</td>
-                        <td className="py-3 pr-4 text-red-600 font-semibold">{formatCurrency(bill.remainingAmount)}</td>
+                        <td className="py-3 pr-4 text-muted-foreground">{bill.feeTypeId?.name || "-"}</td>
+                        <td className="py-3 pr-4 text-muted-foreground">{bill.academicYear} / {bill.semester}</td>
+                        <td className="py-3 pr-4 font-medium text-foreground">{formatCurrency(bill.amount - bill.discount)}</td>
+                        <td className="py-3 pr-4 text-emerald-600 dark:text-emerald-400 font-semibold">{formatCurrency(bill.paidAmount)}</td>
+                        <td className="py-3 pr-4 text-destructive font-semibold">{formatCurrency(bill.remainingAmount)}</td>
                         <td className="py-3 pr-4">
                           <span
                             className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold capitalize border ${
                               bill.status === "paid"
-                                ? "bg-emerald-50 text-emerald-700 border-emerald-200"
+                                ? "bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border-emerald-500/20"
                                 : bill.status === "partially_paid"
-                                ? "bg-amber-50 text-amber-700 border-amber-200"
-                                : "bg-red-50 text-red-700 border-red-200"
+                                ? "bg-amber-500/10 text-amber-700 dark:text-amber-400 border-amber-500/20"
+                                : "bg-destructive/10 text-destructive border-destructive/20"
                             }`}
                           >
                             {bill.status.replace("_", " ")}
@@ -1005,7 +1005,7 @@ export default function BillsPage() {
                     ))}
                     {filteredBills.length === 0 && (
                       <tr>
-                        <td colSpan={7} className="py-8 text-center text-slate-500">
+                        <td colSpan={7} className="py-8 text-center text-muted-foreground">
                           Tidak ada data tagihan yang ditemukan.
                         </td>
                       </tr>
@@ -1017,7 +1017,7 @@ export default function BillsPage() {
               {/* Pagination Controls */}
               {filteredBills.length > 0 && (
                 <div className="flex flex-col sm:flex-row items-center justify-between gap-4 border-t pt-4 mt-4">
-                  <div className="text-xs text-slate-500">
+                  <div className="text-xs text-muted-foreground">
                     Menampilkan <strong>{((currentPage - 1) * rowsPerPage) + 1}</strong> -{" "}
                     <strong>{Math.min(currentPage * rowsPerPage, filteredBills.length)}</strong> dari{" "}
                     <strong>{filteredBills.length}</strong> entri

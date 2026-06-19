@@ -346,7 +346,7 @@ export default function FeeTypesPage() {
                   <FormItem>
                     <FormLabel>Akun Pendapatan</FormLabel>
                     <FormControl>
-                      <select className="h-10 w-full rounded-xl border border-slate-200 bg-white px-3 text-sm" {...field}>
+                      <select className="h-10 w-full rounded-xl border border-input bg-transparent px-3 text-sm" {...field}>
                         <option value="">Pilih akun</option>
                         {data?.revenueAccounts.map((account) => (
                           <option key={account._id} value={account._id}>
@@ -367,7 +367,7 @@ export default function FeeTypesPage() {
                     <FormLabel>Status</FormLabel>
                     <FormControl>
                       <select
-                        className="h-10 w-full rounded-xl border border-slate-200 bg-white px-3 text-sm"
+                        className="h-10 w-full rounded-xl border border-input bg-transparent px-3 text-sm"
                         value={field.value ? "true" : "false"}
                         onChange={(event) => field.onChange(event.target.value === "true")}
                       >
@@ -393,7 +393,7 @@ export default function FeeTypesPage() {
                 )}
               />
               {saveMutation.error && (
-                <div className="md:col-span-2 rounded-md border border-red-100 bg-red-50 p-3 text-sm text-red-600">
+                <div className="md:col-span-2 rounded-md border border-destructive/20 bg-destructive/10 p-3 text-sm text-destructive">
                   {saveMutation.error.message}
                 </div>
               )}
@@ -416,10 +416,10 @@ export default function FeeTypesPage() {
           <CardTitle>Daftar Jenis Tagihan</CardTitle>
         </CardHeader>
         <CardContent>
-          {isLoading && <p className="text-sm text-slate-500">Memuat jenis tagihan...</p>}
+          {isLoading && <p className="text-sm text-muted-foreground">Memuat jenis tagihan...</p>}
           {error && <p className="text-sm text-red-600">{error.message}</p>}
           {deactivateMutation.error && (
-            <div className="mb-3 rounded-md border border-red-100 bg-red-50 p-3 text-sm text-red-600">
+            <div className="mb-3 rounded-md border border-destructive/20 bg-destructive/10 p-3 text-sm text-destructive">
               {deactivateMutation.error.message}
             </div>
           )}
@@ -439,7 +439,7 @@ export default function FeeTypesPage() {
             <TableBody>
               {data?.feeTypes.map((feeType) => (
                 <TableRow key={feeType._id}>
-                  <TableCell className="font-medium text-slate-900">{feeType.name}</TableCell>
+                  <TableCell className="font-medium text-foreground">{feeType.name}</TableCell>
                   <TableCell>{formatCurrency(feeType.defaultAmount)}</TableCell>
                   <TableCell className="min-w-56 whitespace-normal">
                     {feeType.revenueAccountId
@@ -447,7 +447,7 @@ export default function FeeTypesPage() {
                       : "-"}
                   </TableCell>
                   <TableCell>
-                    <Badge className={feeType.isActive ? "bg-emerald-100 text-emerald-700" : "bg-slate-100 text-slate-600"}>
+                    <Badge className={feeType.isActive ? "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400" : "bg-muted text-muted-foreground"}>
                       {feeType.isActive ? "Aktif" : "Nonaktif"}
                     </Badge>
                   </TableCell>

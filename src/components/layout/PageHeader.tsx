@@ -22,12 +22,12 @@ export function PageHeader({ title, description }: PageHeaderProps) {
         <ArrowLeft className="h-5 w-5" />
       </button>
       <div className="min-w-0">
-        <div className="mb-2 inline-flex rounded-full border border-white/15 bg-white/10 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-emerald-100">
+        <div className="mb-2 inline-flex rounded-full border border-slate-200 dark:border-white/15 bg-slate-100 dark:bg-white/10 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-slate-600 dark:text-emerald-100">
           FINARA Module
         </div>
-        <h1 className="truncate text-2xl font-black leading-tight tracking-tight text-white md:text-3xl">{title}</h1>
+        <h1 className="truncate text-2xl font-black leading-tight tracking-tight text-slate-900 dark:text-white md:text-3xl">{title}</h1>
         {description && (
-          <p className="mt-1 max-w-2xl text-sm font-medium leading-relaxed text-slate-200 md:text-base">{description}</p>
+          <p className="mt-1 max-w-2xl text-sm font-medium leading-relaxed text-slate-600 dark:text-slate-200 md:text-base">{description}</p>
         )}
       </div>
       </div>

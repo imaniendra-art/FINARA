@@ -346,7 +346,7 @@ export default function AccountsPage() {
             <CardTitle>Total</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-semibold text-slate-900">{summary.total}</div>
+            <div className="text-2xl font-semibold text-slate-900 dark:text-slate-100">{summary.total}</div>
             <p className="text-sm text-slate-500">Akun sesuai filter</p>
           </CardContent>
         </Card>
@@ -364,7 +364,7 @@ export default function AccountsPage() {
             <CardTitle>Nonaktif</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-semibold text-slate-700">{summary.inactive}</div>
+            <div className="text-2xl font-semibold text-slate-700 dark:text-slate-300">{summary.inactive}</div>
             <p className="text-sm text-slate-500">Tidak dihapus</p>
           </CardContent>
         </Card>
@@ -606,7 +606,7 @@ export default function AccountsPage() {
             <TableBody>
               {filteredAccounts.map((account) => (
                 <TableRow key={account._id}>
-                  <TableCell className="font-medium text-slate-900">{account.code}</TableCell>
+                  <TableCell className="font-medium text-slate-900 dark:text-slate-100">{account.code}</TableCell>
                   <TableCell className="min-w-52 whitespace-normal">{account.name}</TableCell>
                   <TableCell>{typeLabels[account.type]}</TableCell>
                   <TableCell className="min-w-52 whitespace-normal text-slate-500">

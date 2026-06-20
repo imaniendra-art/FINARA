@@ -829,7 +829,7 @@ export default function JournalsPage() {
       {showImport && canCreate && (
         <Card className="border-indigo-500/20 bg-card/80 backdrop-blur-md shadow-md animate-in fade-in slide-in-from-top-4 duration-300">
           <CardHeader className="pb-3 border-b border-slate-100">
-            <CardTitle className="text-lg font-bold text-slate-800 flex items-center gap-2">
+            <CardTitle className="text-lg font-bold text-slate-800 dark:text-slate-300 flex items-center gap-2">
               <FileSpreadsheet className="h-5 w-5 text-indigo-600" />
               Import Jurnal Umum dari Excel
             </CardTitle>
@@ -837,7 +837,7 @@ export default function JournalsPage() {
           <CardContent className="space-y-6 pt-6">
             <div className="grid gap-4 md:grid-cols-[1fr_auto_auto] md:items-end bg-slate-50/50 p-4 rounded-xl border border-slate-100">
               <div className="space-y-2">
-                <label className="text-sm font-semibold text-slate-700 flex items-center gap-1.5">
+                <label className="text-sm font-semibold text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
                   <Upload className="h-4 w-4 text-slate-500" />
                   Pilih File Excel
                 </label>
@@ -902,7 +902,7 @@ export default function JournalsPage() {
                 <div className="grid gap-3 grid-cols-3 bg-card p-4 rounded-xl border border-border shadow-sm">
                   <div className="text-center p-3 rounded-lg bg-slate-50 border border-slate-100">
                     <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Total Entri</p>
-                    <p className="text-2xl font-bold text-slate-800 mt-1">{importPreview.summary.total}</p>
+                    <p className="text-2xl font-bold text-slate-800 dark:text-slate-300 mt-1">{importPreview.summary.total}</p>
                   </div>
                   <div className="text-center p-3 rounded-lg bg-emerald-50/50 border border-emerald-100">
                     <p className="text-xs font-semibold text-emerald-600 uppercase tracking-wider">Siap di-import</p>
@@ -951,7 +951,7 @@ export default function JournalsPage() {
                             <span className="text-xs font-medium text-slate-500">
                               {group.tanggal}
                             </span>
-                            <span className="text-sm font-semibold text-slate-800 truncate max-w-xs md:max-w-md">
+                            <span className="text-sm font-semibold text-slate-800 dark:text-slate-300 truncate max-w-xs md:max-w-md">
                               {group.keteranganJurnal}
                             </span>
                           </div>
@@ -959,7 +959,7 @@ export default function JournalsPage() {
                           <div className="flex items-center gap-4 shrink-0 pl-2">
                             <div className="text-right hidden sm:block">
                               <p className="text-xs text-slate-400">Total Debit/Kredit</p>
-                              <p className="text-sm font-bold text-slate-800">
+                              <p className="text-sm font-bold text-slate-800 dark:text-slate-300">
                                 {formatCurrency(group.totalDebit)}
                               </p>
                             </div>
@@ -989,10 +989,10 @@ export default function JournalsPage() {
                                 </thead>
                                 <tbody>
                                   {group.lines.map((line) => (
-                                    <tr key={line.rowNumber} className="border-b last:border-0 border-slate-100 text-slate-700">
+                                    <tr key={line.rowNumber} className="border-b last:border-0 border-slate-100 text-slate-700 dark:text-slate-300">
                                       <td className="py-2.5 px-3 font-semibold text-slate-500">{line.rowNumber}</td>
                                       <td className="py-2.5 px-3 font-mono">{line.kodeAkun}</td>
-                                      <td className="py-2.5 px-3 font-medium text-slate-900">{line.accountName || "-"}</td>
+                                      <td className="py-2.5 px-3 font-medium text-slate-900 dark:text-slate-100">{line.accountName || "-"}</td>
                                       <td className="py-2.5 px-3 text-right font-semibold text-emerald-600">
                                         {line.debit > 0 ? formatCurrency(line.debit) : "-"}
                                       </td>
@@ -1065,7 +1065,7 @@ export default function JournalsPage() {
                         setSelectedImportFile(null);
                         setImportPreview(null);
                       }}
-                      className="border-slate-200 text-slate-700 hover:bg-slate-50"
+                      className="border-slate-200 text-slate-700 dark:text-slate-300 hover:bg-slate-50"
                     >
                       Batal
                     </Button>
@@ -1206,7 +1206,7 @@ export default function JournalsPage() {
                   {paginatedJournals.map((journal) => (
                     <tr key={journal._id} className="border-b last:border-0 hover:bg-slate-50/50 transition-colors">
                       <td className="py-3 pr-4">{formatDate(journal.date)}</td>
-                      <td className="py-3 pr-4 font-medium text-slate-900">{journal.entryNumber}</td>
+                      <td className="py-3 pr-4 font-medium text-slate-900 dark:text-slate-100">{journal.entryNumber}</td>
                       <td className="py-3 pr-4">{journal.description}</td>
                       <td className="py-3 pr-4">{badge(sourceClass(journal.sourceType), sourceLabels[journal.sourceType])}</td>
                       <td className="py-3 pr-4">{formatCurrency(journal.totals.totalDebit)}</td>
@@ -1319,7 +1319,7 @@ export default function JournalsPage() {
             {selectedJournal && detailQuery.data && (
               <div className="space-y-4">
                 <div>
-                  <div className="text-lg font-semibold text-slate-900">{selectedJournal.entryNumber}</div>
+                  <div className="text-lg font-semibold text-slate-900 dark:text-slate-100">{selectedJournal.entryNumber}</div>
                   <div className="mt-1 flex flex-wrap gap-2">
                     {badge(sourceClass(selectedJournal.sourceType), sourceLabels[selectedJournal.sourceType])}
                     {badge(statusClass(selectedJournal.status), statusLabels[selectedJournal.status])}
@@ -1366,7 +1366,7 @@ export default function JournalsPage() {
                       {detailQuery.data.lines.map((line) => (
                         <tr key={line._id} className="border-b last:border-0">
                           <td className="py-3 pl-3 pr-4">
-                            <div className="font-medium text-slate-900">
+                            <div className="font-medium text-slate-900 dark:text-slate-100">
                               {line.accountId ? `${line.accountId.code} - ${line.accountId.name}` : "-"}
                             </div>
                             <div className="text-xs text-slate-500">{line.description || "-"}</div>

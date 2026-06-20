@@ -63,7 +63,7 @@ function ReceiptRow({ label, value }: { label: string; value: string }) {
   return (
     <div className="grid grid-cols-[180px_1fr] gap-3 border-b border-slate-100 py-2 text-sm">
       <div className="text-slate-500">{label}</div>
-      <div className="font-medium text-slate-900">{value}</div>
+      <div className="font-medium text-slate-900 dark:text-slate-100">{value}</div>
     </div>
   );
 }
@@ -79,7 +79,7 @@ export function ReceiptClient({ paymentId }: { paymentId: string }) {
     <div className="mx-auto max-w-3xl space-y-4">
       <div className="flex items-center justify-between print:hidden">
         <div>
-          <h1 className="text-2xl font-bold tracking-tight text-slate-900">Kwitansi Pembayaran</h1>
+          <h1 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100">Kwitansi Pembayaran</h1>
           <p className="text-slate-500">Cetak atau simpan kwitansi pembayaran sebagai PDF.</p>
         </div>
         <Button onClick={() => window.print()} disabled={!receipt}>
@@ -135,12 +135,12 @@ export function ReceiptClient({ paymentId }: { paymentId: string }) {
               <div>
                 <p className="text-slate-500">Mahasiswa</p>
                 <div className="h-20" />
-                <p className="font-medium text-slate-900">{receipt.studentName}</p>
+                <p className="font-medium text-slate-900 dark:text-slate-100">{receipt.studentName}</p>
               </div>
               <div>
                 <p className="text-slate-500">Petugas BAUK</p>
                 <div className="h-20" />
-                <p className="font-medium text-slate-900">{receipt.officerName}</p>
+                <p className="font-medium text-slate-900 dark:text-slate-100">{receipt.officerName}</p>
               </div>
             </div>
 

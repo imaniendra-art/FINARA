@@ -150,7 +150,7 @@ const statusLabels: Record<BudgetStatus, string> = {
 };
 
 const statusClasses: Record<BudgetStatus, string> = {
-  draft: "bg-slate-100 text-slate-700",
+  draft: "bg-slate-100 text-slate-700 dark:text-slate-300",
   submitted: "bg-blue-100 text-blue-700",
   verified: "bg-indigo-100 text-indigo-700",
   approved: "bg-green-100 text-green-700",
@@ -530,7 +530,7 @@ export function BudgetRequestsClient() {
           <Card key={item.status}>
             <CardContent className="p-4">
               <div className="text-xs font-semibold uppercase text-slate-500">{statusLabels[item.status]}</div>
-              <div className="mt-2 text-2xl font-bold text-slate-900">{item.count}</div>
+              <div className="mt-2 text-2xl font-bold text-slate-900 dark:text-slate-100">{item.count}</div>
             </CardContent>
           </Card>
         ))}
@@ -608,7 +608,7 @@ export function BudgetRequestsClient() {
               <div className="space-y-3">
                 <div className="flex items-center justify-between gap-3">
                   <div>
-                    <h3 className="text-sm font-bold text-slate-700">Rincian Jumlah Dana</h3>
+                    <h3 className="text-sm font-bold text-slate-700 dark:text-slate-300">Rincian Jumlah Dana</h3>
                     <p className="text-xs text-slate-500">Total pengajuan dihitung dari seluruh item RAB.</p>
                   </div>
                   <Button type="button" variant="outline" onClick={() => items.append({ itemName: "", quantity: 1, unit: "unit", unitPrice: 0, note: "", referenceUrl: "" })}>
@@ -623,7 +623,7 @@ export function BudgetRequestsClient() {
                     <FormField control={form.control} name={`items.${index}.unitPrice`} render={({ field }) => <FormItem className="md:col-span-2"><FormLabel>Nominal</FormLabel><FormControl><Input type="number" {...field} value={String(field.value ?? "")} /></FormControl><FormMessage /></FormItem>} />
                     <FormField control={form.control} name={`items.${index}.note`} render={({ field }) => <FormItem className="md:col-span-2"><FormLabel>Catatan</FormLabel><FormControl><Input {...field} /></FormControl><FormMessage /></FormItem>} />
                     <div className="md:col-span-2 flex items-end justify-between gap-2">
-                      <div className="text-sm font-bold text-slate-700">{formatCurrency(Number(watchedItems[index]?.quantity || 0) * Number(watchedItems[index]?.unitPrice || 0))}</div>
+                      <div className="text-sm font-bold text-slate-700 dark:text-slate-300">{formatCurrency(Number(watchedItems[index]?.quantity || 0) * Number(watchedItems[index]?.unitPrice || 0))}</div>
                       <Button type="button" variant="outline" onClick={() => items.remove(index)} disabled={items.fields.length === 1}>Hapus</Button>
                     </div>
                   </div>
@@ -668,14 +668,14 @@ export function BudgetRequestsClient() {
           <div className="space-y-4">
             {approvalTarget && (
               <div className="rounded-xl bg-slate-50 p-3 text-sm">
-                <div className="font-semibold text-slate-900">{approvalTarget.activityName}</div>
+                <div className="font-semibold text-slate-900 dark:text-slate-100">{approvalTarget.activityName}</div>
                 <div className="mt-1 text-slate-500">
                   Diajukan: {formatCurrency(approvalTarget.totalRequestedAmount)}
                 </div>
               </div>
             )}
             <div className="space-y-2">
-              <label className="text-sm font-semibold text-slate-700" htmlFor="approvedAmount">
+              <label className="text-sm font-semibold text-slate-700 dark:text-slate-300" htmlFor="approvedAmount">
                 Nominal ACC
               </label>
               <Input
@@ -687,7 +687,7 @@ export function BudgetRequestsClient() {
               />
             </div>
             <div className="space-y-2">
-              <label className="text-sm font-semibold text-slate-700" htmlFor="approvalNote">
+              <label className="text-sm font-semibold text-slate-700 dark:text-slate-300" htmlFor="approvalNote">
                 Catatan Approval
               </label>
               <Input
@@ -828,10 +828,10 @@ export function BudgetRequestsClient() {
 
       {selectedId && detail && (
         <div className="fixed inset-0 z-50 overflow-y-auto bg-slate-900/50 p-4">
-          <div className="mx-auto max-w-5xl rounded-xl bg-white p-5 shadow-xl">
+          <div className="mx-auto max-w-5xl rounded-xl bg-white dark:bg-slate-900 p-5 shadow-xl">
             <div className="flex items-start justify-between gap-3 border-b pb-4">
               <div>
-                <h2 className="text-xl font-bold text-slate-900">{detail.requestNumber}</h2>
+                <h2 className="text-xl font-bold text-slate-900 dark:text-white">{detail.requestNumber}</h2>
                 <p className="text-sm text-slate-500">{detail.activityName} - {detail.requesterName}</p>
               </div>
               <Button type="button" variant="outline" onClick={() => setSelectedId(null)}><X className="h-4 w-4" /> Tutup</Button>
@@ -844,7 +844,7 @@ export function BudgetRequestsClient() {
             </div>
 
             {["disbursed", "lpj_submitted", "completed"].includes(detail.status) ? (
-              <div className="mt-4 rounded-lg border border-amber-200 bg-amber-50 p-3 text-sm font-medium text-amber-800">
+              <div className="mt-4 rounded-lg border border-amber-200 dark:border-amber-900/50 bg-amber-50 dark:bg-amber-900/20 p-3 text-sm font-medium text-amber-800 dark:text-amber-400">
                 Pencairan dana sudah ditandai. Silakan catat realisasi pencairan pada modul Kas Keluar agar masuk jurnal dan laporan kas.
               </div>
             ) : null}

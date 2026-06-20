@@ -77,10 +77,10 @@ export default function UserDashboard({ session }: { session: Session | null }) 
         </div>
 
         {/* Card 3: Menunggu Proses */}
-        <div className="relative overflow-hidden rounded-[20px] bg-amber-500 p-5 text-slate-900 shadow-md transition-all hover:bg-amber-600">
-          <h6 className="text-[11px] font-bold uppercase tracking-widest text-slate-900/80">Menunggu Proses</h6>
+        <div className="relative overflow-hidden rounded-[20px] bg-amber-500 p-5 text-slate-900 dark:text-slate-100 shadow-md transition-all hover:bg-amber-600">
+          <h6 className="text-[11px] font-bold uppercase tracking-widest text-slate-900 dark:text-slate-100/80">Menunggu Proses</h6>
           <h3 className="mt-2 text-2xl font-black">{isLoading ? "..." : formatCurrency(sisaMenunggu)}</h3>
-          <Hourglass className="absolute -bottom-4 -right-4 h-24 w-24 text-slate-900/10" />
+          <Hourglass className="absolute -bottom-4 -right-4 h-24 w-24 text-slate-900 dark:text-slate-100/10" />
         </div>
 
         {/* Card 4: Dana Cair (ACC) */}

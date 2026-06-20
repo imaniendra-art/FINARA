@@ -264,7 +264,7 @@ export function ReportsClient() {
         <CardContent>
           <div className="grid gap-4 md:grid-cols-4">
             <div className="space-y-2">
-              <label className="text-sm font-medium text-slate-700">Angkatan</label>
+              <label className="text-sm font-medium text-slate-700 dark:text-slate-300">Angkatan</label>
               <select
                 className="h-8 w-full rounded-lg border border-input bg-transparent px-2.5 text-sm"
                 value={filters.entryYear}
@@ -279,7 +279,7 @@ export function ReportsClient() {
               </select>
             </div>
             <div className="space-y-2">
-              <label className="text-sm font-medium text-slate-700">Prodi</label>
+              <label className="text-sm font-medium text-slate-700 dark:text-slate-300">Prodi</label>
               <select
                 className="h-8 w-full rounded-lg border border-input bg-transparent px-2.5 text-sm"
                 value={filters.programStudy}
@@ -294,7 +294,7 @@ export function ReportsClient() {
               </select>
             </div>
             <div className="space-y-2">
-              <label className="text-sm font-medium text-slate-700">Semester</label>
+              <label className="text-sm font-medium text-slate-700 dark:text-slate-300">Semester</label>
               <select
                 className="h-8 w-full rounded-lg border border-input bg-transparent px-2.5 text-sm"
                 value={filters.semester}
@@ -309,7 +309,7 @@ export function ReportsClient() {
               </select>
             </div>
             <div className="space-y-2">
-              <label className="text-sm font-medium text-slate-700">Status</label>
+              <label className="text-sm font-medium text-slate-700 dark:text-slate-300">Status</label>
               <select
                 className="h-8 w-full rounded-lg border border-input bg-transparent px-2.5 text-sm"
                 value={filters.status}

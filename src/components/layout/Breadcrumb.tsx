@@ -32,7 +32,7 @@ export function Breadcrumb() {
   const segments = pathname.split("/").filter(Boolean);
 
   return (
-    <nav aria-label="Breadcrumb" className="mb-5 flex w-fit items-center space-x-1.5 rounded-2xl border border-white/70 bg-white/70 px-4 py-2 text-xs font-bold text-slate-500 shadow-xs backdrop-blur-xl">
+    <nav aria-label="Breadcrumb" className="mb-5 flex w-fit items-center space-x-1.5 rounded-2xl border border-white/70 dark:border-white/10 bg-white/70 dark:bg-slate-900/70 px-4 py-2 text-xs font-bold text-slate-500 dark:text-slate-400 shadow-sm backdrop-blur-xl">
       <Link
         href="/dashboard"
         className="flex items-center gap-1.5 hover:text-primary transition-colors duration-150"

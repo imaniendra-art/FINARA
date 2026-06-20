@@ -57,7 +57,7 @@ export default function LoginPage() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-[#fbfcff] p-4">
       {/* M3 Elevated Card */}
-      <div className="w-full max-w-md rounded-[32px] bg-white p-8 shadow-[0_14px_40px_rgba(15,23,42,0.12)] ring-1 ring-slate-100">
+      <div className="w-full max-w-md rounded-[32px] bg-white dark:bg-slate-900 p-8 shadow-[0_14px_40px_rgba(15,23,42,0.12)] dark:shadow-slate-950/20 ring-1 ring-slate-100 dark:ring-slate-800">
 
         {/* Header Area — Tonal Surface */}
         <div className="mb-8 flex flex-col items-center rounded-[28px] bg-[#f7f9ff] px-6 py-8 ring-1 ring-[#e7edff]">
@@ -91,7 +91,7 @@ export default function LoginPage() {
             <label htmlFor="email" className="block text-sm font-semibold text-slate-700">
               Email
             </label>
-            <div className="flex h-14 items-center gap-3 rounded-[18px] bg-[#f1f5fb] px-4 ring-1 ring-transparent transition-all focus-within:bg-white focus-within:ring-[#1d4ed8]">
+            <div className="flex h-14 items-center gap-3 rounded-[18px] bg-[#f1f5fb] dark:bg-slate-800 px-4 ring-1 ring-transparent transition-all focus-within:bg-white dark:focus-within:bg-slate-900 focus-within:ring-blue-600 dark:focus-within:ring-blue-500">
               <Mail className="h-5 w-5 shrink-0 text-slate-400" />
               <input
                 id="email"
@@ -114,7 +114,7 @@ export default function LoginPage() {
             <label htmlFor="password" className="block text-sm font-semibold text-slate-700">
               Password
             </label>
-            <div className="flex h-14 items-center gap-3 rounded-[18px] bg-[#f1f5fb] px-4 ring-1 ring-transparent transition-all focus-within:bg-white focus-within:ring-[#1d4ed8]">
+            <div className="flex h-14 items-center gap-3 rounded-[18px] bg-[#f1f5fb] dark:bg-slate-800 px-4 ring-1 ring-transparent transition-all focus-within:bg-white dark:focus-within:bg-slate-900 focus-within:ring-blue-600 dark:focus-within:ring-blue-500">
               <Lock className="h-5 w-5 shrink-0 text-slate-400" />
               <input
                 id="password"

@@ -262,7 +262,7 @@ export default function FeeTypesPage() {
             <CardTitle>Total Jenis</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-semibold text-slate-900">{data?.feeTypes.length ?? 0}</div>
+            <div className="text-2xl font-semibold text-slate-900 dark:text-slate-100">{data?.feeTypes.length ?? 0}</div>
             <p className="text-sm text-slate-500">Semua jenis tagihan</p>
           </CardContent>
         </Card>
@@ -280,7 +280,7 @@ export default function FeeTypesPage() {
             <CardTitle>Akun Pendapatan</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-semibold text-slate-900">{data?.revenueAccounts.length ?? 0}</div>
+            <div className="text-2xl font-semibold text-slate-900 dark:text-slate-100">{data?.revenueAccounts.length ?? 0}</div>
             <p className="text-sm text-slate-500">Akun aktif yang bisa dipilih</p>
           </CardContent>
         </Card>

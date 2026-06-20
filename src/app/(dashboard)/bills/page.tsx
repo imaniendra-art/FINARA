@@ -431,7 +431,7 @@ export default function BillsPage() {
                     <FormLabel>Jenis Tagihan</FormLabel>
                     <FormControl>
                       <select
-                        className="h-8 w-full rounded-lg border border-input bg-transparent px-2.5 text-sm"
+                        className="h-8 w-full rounded-lg border border-input bg-white dark:bg-slate-900 px-2.5 text-sm"
                         {...field}
                         onChange={(event) => {
                           field.onChange(event);
@@ -483,7 +483,7 @@ export default function BillsPage() {
                   <FormItem>
                     <FormLabel>Angkatan</FormLabel>
                     <FormControl>
-                      <select className="h-8 w-full rounded-lg border border-input bg-transparent px-2.5 text-sm" {...field}>
+                      <select className="h-8 w-full rounded-lg border border-input bg-white dark:bg-slate-900 px-2.5 text-sm" {...field}>
                         <option value="">Semua angkatan</option>
                         {data?.options.entryYears.map((entryYear) => (
                           <option key={entryYear} value={entryYear}>
@@ -503,7 +503,7 @@ export default function BillsPage() {
                   <FormItem>
                     <FormLabel>Program Studi</FormLabel>
                     <FormControl>
-                      <select className="h-8 w-full rounded-lg border border-input bg-transparent px-2.5 text-sm" {...field}>
+                      <select className="h-8 w-full rounded-lg border border-input bg-white dark:bg-slate-900 px-2.5 text-sm" {...field}>
                         <option value="">Semua prodi</option>
                         {data?.options.programStudies.map((programStudy) => (
                           <option key={programStudy} value={programStudy}>
@@ -523,7 +523,7 @@ export default function BillsPage() {
                   <FormItem>
                     <FormLabel>Kelas</FormLabel>
                     <FormControl>
-                      <select className="h-8 w-full rounded-lg border border-input bg-transparent px-2.5 text-sm" {...field}>
+                      <select className="h-8 w-full rounded-lg border border-input bg-white dark:bg-slate-900 px-2.5 text-sm" {...field}>
                         <option value="">Semua kelas</option>
                         {data?.options.classNames.map((className) => (
                           <option key={className} value={className}>
@@ -543,7 +543,7 @@ export default function BillsPage() {
                   <FormItem>
                     <FormLabel>Status</FormLabel>
                     <FormControl>
-                      <select className="h-8 w-full rounded-lg border border-input bg-transparent px-2.5 text-sm" {...field}>
+                      <select className="h-8 w-full rounded-lg border border-input bg-white dark:bg-slate-900 px-2.5 text-sm" {...field}>
                         <option value="active">Aktif</option>
                       </select>
                     </FormControl>
@@ -558,7 +558,7 @@ export default function BillsPage() {
                   <FormItem>
                     <FormLabel>Biaya Pendidikan</FormLabel>
                     <FormControl>
-                      <select className="h-8 w-full rounded-lg border border-input bg-transparent px-2.5 text-sm" {...field}>
+                      <select className="h-8 w-full rounded-lg border border-input bg-white dark:bg-slate-900 px-2.5 text-sm" {...field}>
                         <option value="">Semua</option>
                         <option value="KIP">KIP</option>
                         <option value="Reguler">Reguler</option>
@@ -772,7 +772,7 @@ export default function BillsPage() {
                         className="h-8 text-xs"
                       />
                       <FormControl>
-                        <select className="h-8 w-full rounded-lg border border-input bg-transparent px-2.5 text-sm" {...field}>
+                        <select className="h-8 w-full rounded-lg border border-input bg-white dark:bg-slate-900 px-2.5 text-sm" {...field}>
                           <option value="">Pilih mahasiswa ({filteredStudents.length} ditemukan)</option>
                           {filteredStudents.map((student) => (
                             <option key={student._id} value={student._id}>
@@ -794,7 +794,7 @@ export default function BillsPage() {
                     <FormLabel>Jenis Tagihan</FormLabel>
                     <FormControl>
                       <select
-                        className="h-8 w-full rounded-lg border border-input bg-transparent px-2.5 text-sm"
+                        className="h-8 w-full rounded-lg border border-input bg-white dark:bg-slate-900 px-2.5 text-sm"
                         {...field}
                         onChange={(event) => {
                           field.onChange(event);

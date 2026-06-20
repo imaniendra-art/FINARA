@@ -523,7 +523,7 @@ export default function StudentsPage() {
             <CardTitle>Total</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-semibold text-slate-900">{summary.total}</div>
+            <div className="text-2xl font-semibold text-slate-900 dark:text-slate-100">{summary.total}</div>
             <p className="text-sm text-slate-500">Data sesuai filter</p>
           </CardContent>
         </Card>
@@ -541,7 +541,7 @@ export default function StudentsPage() {
             <CardTitle>Nonaktif</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-semibold text-slate-700">{summary.inactive}</div>
+            <div className="text-2xl font-semibold text-slate-700 dark:text-slate-300">{summary.inactive}</div>
             <p className="text-sm text-slate-500">Tidak dihapus</p>
           </CardContent>
         </Card>
@@ -564,7 +564,7 @@ export default function StudentsPage() {
           <CardContent className="space-y-4">
             <div className="grid gap-3 md:grid-cols-[1fr_auto_auto] md:items-end">
               <div>
-                <label className="mb-2 block text-sm font-medium text-slate-700">File Excel</label>
+                <label className="mb-2 block text-sm font-medium text-slate-700 dark:text-slate-300">File Excel</label>
                 <Input
                   type="file"
                   accept=".xlsx,.xls"
@@ -596,7 +596,7 @@ export default function StudentsPage() {
                 <div className="grid gap-3 md:grid-cols-4">
                   <div>
                     <p className="text-xs text-slate-500">Total Baris</p>
-                    <p className="text-lg font-semibold text-slate-900">{importPreview.summary.total}</p>
+                    <p className="text-lg font-semibold text-slate-900 dark:text-slate-100">{importPreview.summary.total}</p>
                   </div>
                   <div>
                     <p className="text-xs text-slate-500">Valid</p>
@@ -613,7 +613,7 @@ export default function StudentsPage() {
                 </div>
 
                 <div className="flex flex-wrap items-center justify-between gap-3 border-t pt-3">
-                  <label className="flex items-center gap-2 text-sm text-slate-700">
+                  <label className="flex items-center gap-2 text-sm text-slate-700 dark:text-slate-300">
                     <span>Jika NIM sudah ada</span>
                     <select
                       className="h-8 rounded-lg border border-input bg-transparent px-2.5 text-sm"

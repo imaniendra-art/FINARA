@@ -319,7 +319,7 @@ export default function PaymentsPage() {
           className={`px-4 py-2 text-sm font-medium border-b-2 transition-colors ${
             activeTab === "single"
               ? "border-indigo-600 text-indigo-600 font-semibold"
-              : "border-transparent text-slate-500 hover:text-slate-700"
+              : "border-transparent text-slate-500 hover:text-slate-700 dark:text-slate-300"
           }`}
         >
           Pembayaran Tunggal
@@ -330,7 +330,7 @@ export default function PaymentsPage() {
           className={`px-4 py-2 text-sm font-medium border-b-2 transition-colors ${
             activeTab === "batch"
               ? "border-indigo-600 text-indigo-600 font-semibold"
-              : "border-transparent text-slate-500 hover:text-slate-700"
+              : "border-transparent text-slate-500 hover:text-slate-700 dark:text-slate-300"
           }`}
         >
           Pembayaran KIP Massal
@@ -494,7 +494,7 @@ export default function PaymentsPage() {
             >
               <div className="grid gap-4 md:grid-cols-4">
                 <div className="space-y-2">
-                  <label className="text-sm font-medium text-slate-700">Angkatan Mahasiswa KIP</label>
+                  <label className="text-sm font-medium text-slate-700 dark:text-slate-300">Angkatan Mahasiswa KIP</label>
                   <select
                     className="h-8 w-full rounded-lg border border-input bg-transparent px-2.5 text-sm"
                     value={batchEntryYear}
@@ -508,7 +508,7 @@ export default function PaymentsPage() {
                   </select>
                 </div>
                 <div className="space-y-2">
-                  <label className="text-sm font-medium text-slate-700">Akun Kas/Bank Penerima</label>
+                  <label className="text-sm font-medium text-slate-700 dark:text-slate-300">Akun Kas/Bank Penerima</label>
                   <select
                     className="h-8 w-full rounded-lg border border-input bg-transparent px-2.5 text-sm"
                     value={batchCashOrBankAccountId}
@@ -524,7 +524,7 @@ export default function PaymentsPage() {
                   </select>
                 </div>
                 <div className="space-y-2">
-                  <label className="text-sm font-medium text-slate-700">Tanggal Transfer</label>
+                  <label className="text-sm font-medium text-slate-700 dark:text-slate-300">Tanggal Transfer</label>
                   <Input
                     type="date"
                     value={batchPaymentDate}
@@ -533,7 +533,7 @@ export default function PaymentsPage() {
                   />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-sm font-medium text-slate-700">Metode</label>
+                  <label className="text-sm font-medium text-slate-700 dark:text-slate-300">Metode</label>
                   <select
                     className="h-8 w-full rounded-lg border border-input bg-transparent px-2.5 text-sm"
                     value={batchPaymentMethod}
@@ -546,7 +546,7 @@ export default function PaymentsPage() {
                   </select>
                 </div>
                 <div className="space-y-2 md:col-span-3">
-                  <label className="text-sm font-medium text-slate-700">Catatan Transaksi</label>
+                  <label className="text-sm font-medium text-slate-700 dark:text-slate-300">Catatan Transaksi</label>
                   <Input
                     type="text"
                     placeholder="Contoh: Pembayaran KIP Batch SPP Genap"
@@ -581,7 +581,7 @@ export default function PaymentsPage() {
               {batchEntryYear && (
                 <div className="border-t pt-6 space-y-4">
                   <div className="flex flex-wrap items-center justify-between gap-2">
-                    <h3 className="text-sm font-semibold text-slate-800">
+                    <h3 className="text-sm font-semibold text-slate-800 dark:text-slate-300">
                       Daftar Tagihan Mahasiswa KIP Angkatan {batchEntryYear}
                     </h3>
                     <div className="text-sm text-slate-600 bg-slate-50 px-3 py-1 rounded-md border">
@@ -630,7 +630,7 @@ export default function PaymentsPage() {
                                     onChange={() => handleSelectToggle(bill._id)}
                                   />
                                 </td>
-                                <td className="py-3 pr-4 font-medium text-slate-900">{bill.studentId?.nim || "-"}</td>
+                                <td className="py-3 pr-4 font-medium text-slate-900 dark:text-slate-100">{bill.studentId?.nim || "-"}</td>
                                 <td className="py-3 pr-4">{bill.studentId?.name || "-"}</td>
                                 <td className="py-3 pr-4 text-slate-500">{bill.studentId?.programStudy || "-"}</td>
                                 <td className="py-3 pr-4">{bill.feeTypeId?.name || "-"} ({bill.semester})</td>
@@ -717,10 +717,10 @@ export default function PaymentsPage() {
                       <tr key={payment._id} className="border-b last:border-0 hover:bg-slate-50/50 transition-colors">
                         <td className="py-3 pr-4 font-mono text-xs text-slate-600">{payment.paymentNumber}</td>
                         <td className="py-3 pr-4 font-mono text-xs text-slate-600">{payment.receiptNumber}</td>
-                        <td className="py-3 pr-4 font-medium text-slate-900">{payment.studentId?.name || "-"}</td>
+                        <td className="py-3 pr-4 font-medium text-slate-900 dark:text-slate-100">{payment.studentId?.name || "-"}</td>
                         <td className="py-3 pr-4 text-slate-600">{new Date(payment.paymentDate).toLocaleDateString("id-ID")}</td>
                         <td className="py-3 pr-4 capitalize text-slate-600">{payment.paymentMethod.replace("_", " ")}</td>
-                        <td className="py-3 pr-4 font-semibold text-slate-900">{formatCurrency(payment.amount)}</td>
+                        <td className="py-3 pr-4 font-semibold text-slate-900 dark:text-slate-100">{formatCurrency(payment.amount)}</td>
                         <td className="py-3 pr-4">
                           <Button asChild variant="outline" size="sm" className="h-8 text-xs gap-1">
                             <Link href={`/payments/${payment._id}/receipt`}>

@@ -12,7 +12,7 @@ function Card({
       data-slot="card"
       data-size={size}
       className={cn(
-        "group/card flex flex-col gap-4 overflow-hidden rounded-[28px] border border-slate-100 bg-white py-5 text-sm text-card-foreground shadow-[0_10px_28px_-22px_rgba(15,41,66,0.45)] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_16px_38px_-24px_rgba(15,41,66,0.55)] has-data-[slot=card-footer]:pb-0 has-[>img:first-child]:pt-0 data-[size=sm]:gap-3 data-[size=sm]:py-4 data-[size=sm]:has-data-[slot=card-footer]:pb-0 *:[img:first-child]:rounded-t-[28px] *:[img:last-child]:rounded-b-[28px]",
+        "group/card flex flex-col gap-4 overflow-hidden rounded-[28px] border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 py-5 text-sm text-slate-800 dark:text-slate-200 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md has-data-[slot=card-footer]:pb-0 has-[>img:first-child]:pt-0 data-[size=sm]:gap-3 data-[size=sm]:py-4 data-[size=sm]:has-data-[slot=card-footer]:pb-0 *:[img:first-child]:rounded-t-[28px] *:[img:last-child]:rounded-b-[28px]",
         className
       )}
       {...props}
@@ -38,7 +38,7 @@ function CardTitle({ className, ...props }: React.ComponentProps<"div">) {
     <div
       data-slot="card-title"
       className={cn(
-        "font-heading text-lg leading-snug font-black text-slate-900 tracking-tight group-data-[size=sm]/card:text-base",
+        "font-heading text-lg leading-snug font-black text-slate-900 dark:text-white tracking-tight group-data-[size=sm]/card:text-base",
         className
       )}
       {...props}
@@ -50,7 +50,7 @@ function CardDescription({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="card-description"
-      className={cn("text-sm text-slate-500 font-medium", className)}
+      className={cn("text-sm text-slate-500 dark:text-slate-400 font-medium", className)}
       {...props}
     />
   )
@@ -84,7 +84,7 @@ function CardFooter({ className, ...props }: React.ComponentProps<"div">) {
     <div
       data-slot="card-footer"
       className={cn(
-        "flex items-center rounded-b-[28px] border-t border-slate-100 bg-slate-50/70 px-6 py-4 group-data-[size=sm]/card:p-4",
+        "flex items-center rounded-b-[28px] border-t border-slate-200 dark:border-slate-800 bg-slate-50/70 dark:bg-slate-900/50 px-6 py-4 group-data-[size=sm]/card:p-4",
         className
       )}
       {...props}

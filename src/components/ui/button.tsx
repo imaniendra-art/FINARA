@@ -9,13 +9,13 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-[#0f2942] text-white shadow-sm shadow-[#0f2942]/20 hover:bg-[#163a5c] hover:shadow-md",
+        default: "bg-blue-600 dark:bg-blue-600 text-white shadow-sm shadow-blue-600/20 hover:bg-blue-700 dark:hover:bg-blue-700 hover:shadow-md",
         outline:
-          "border-slate-200 bg-white text-slate-700 hover:border-slate-300 hover:bg-slate-50 hover:text-[#0f2942] aria-expanded:bg-slate-50 aria-expanded:text-[#0f2942] dark:border-input dark:bg-input/30 dark:hover:bg-input/50",
+          "border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-200 hover:border-slate-300 dark:hover:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-blue-600 dark:hover:text-blue-400 aria-expanded:bg-slate-50 aria-expanded:text-blue-600 dark:aria-expanded:bg-slate-800 dark:aria-expanded:text-blue-400",
         secondary:
-          "bg-slate-100 text-slate-800 hover:bg-slate-200 aria-expanded:bg-slate-100 aria-expanded:text-slate-800",
+          "bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-700 aria-expanded:bg-slate-100 dark:aria-expanded:bg-slate-800 aria-expanded:text-slate-800 dark:aria-expanded:text-slate-200",
         ghost:
-          "text-slate-700 hover:bg-slate-100 hover:text-[#0f2942] aria-expanded:bg-slate-100 aria-expanded:text-[#0f2942] dark:hover:bg-muted/50",
+          "text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-blue-600 dark:hover:text-blue-400 aria-expanded:bg-slate-100 dark:aria-expanded:bg-slate-800 aria-expanded:text-blue-600 dark:aria-expanded:text-blue-400",
         destructive:
           "bg-destructive/10 text-destructive hover:bg-destructive/20 focus-visible:border-destructive/40 focus-visible:ring-destructive/20 dark:bg-destructive/20 dark:hover:bg-destructive/30 dark:focus-visible:ring-destructive/40",
         link: "text-primary underline-offset-4 hover:underline",

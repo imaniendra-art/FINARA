@@ -470,7 +470,7 @@ export default function SettingsPage() {
         </div>
       )}
 
-      <div className="flex flex-wrap gap-2 rounded-xl bg-white p-2 ring-1 ring-slate-100">
+      <div className="flex flex-wrap gap-2 rounded-xl bg-white dark:bg-slate-900 p-2 ring-1 ring-slate-100 dark:ring-slate-800">
         {tabs.map((tab) => (
           <Button
             key={tab.key}
@@ -640,7 +640,7 @@ export default function SettingsPage() {
                 <tbody>
                   {periodsQuery.data?.map((period) => (
                     <tr key={period._id} className="border-b last:border-0">
-                      <td className="py-3 pr-4 font-medium text-slate-900">{period.academicYear}</td>
+                      <td className="py-3 pr-4 font-medium text-slate-900 dark:text-slate-100">{period.academicYear}</td>
                       <td className="py-3 pr-4 capitalize">{period.semester}</td>
                       <td className="py-3 pr-4">
                         {period.isActive ? <Badge>Aktif</Badge> : <Badge variant="outline">Nonaktif</Badge>}
@@ -726,7 +726,7 @@ export default function SettingsPage() {
 
             <div className="grid gap-4 md:grid-cols-2">
               <div>
-                <label className="mb-2 block text-sm font-medium text-slate-700">
+                <label className="mb-2 block text-sm font-medium text-slate-700 dark:text-slate-300">
                   Password super admin
                 </label>
                 <Input
@@ -737,7 +737,7 @@ export default function SettingsPage() {
                   autoComplete="current-password"
                 />
               </div>
-              <label className="flex items-end gap-2 text-sm text-slate-700">
+              <label className="flex items-end gap-2 text-sm text-slate-700 dark:text-slate-300">
                 <input
                   type="checkbox"
                   checked={resetConfirmed}
@@ -879,7 +879,7 @@ export default function SettingsPage() {
                         const isExpanded = expandedLogId === log._id;
                         
                         // Action Badge styling
-                        let actionBadgeColor = "bg-slate-100 text-slate-700";
+                        let actionBadgeColor = "bg-slate-100 text-slate-700 dark:text-slate-300";
                         let actionLabel = log.action;
                         if (log.action === "create") {
                           actionBadgeColor = "bg-emerald-100 text-emerald-800 border-emerald-200";
@@ -925,7 +925,7 @@ export default function SettingsPage() {
                                 }).format(new Date(log.createdAt))}
                               </td>
                               <td className="p-3 whitespace-nowrap">
-                                <div className="font-medium text-slate-900">{log.user.name}</div>
+                                <div className="font-medium text-slate-900 dark:text-slate-100">{log.user.name}</div>
                                 <div className="text-xs text-slate-400">{log.user.email}</div>
                               </td>
                               <td className="p-3 whitespace-nowrap">
@@ -933,7 +933,7 @@ export default function SettingsPage() {
                                   {actionLabel}
                                 </span>
                               </td>
-                              <td className="p-3 whitespace-nowrap text-slate-700 font-medium">
+                              <td className="p-3 whitespace-nowrap text-slate-700 dark:text-slate-300 font-medium">
                                 {moduleLabel}
                               </td>
                               <td className="p-3 whitespace-nowrap text-xs font-mono text-slate-400">
@@ -1033,7 +1033,7 @@ export default function SettingsPage() {
 function PageTitle() {
   return (
     <div>
-      <h1 className="text-2xl font-bold tracking-tight text-slate-900">Pengaturan</h1>
+      <h1 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100">Pengaturan</h1>
       <p className="text-slate-500">Konfigurasi dasar aplikasi FINARA.</p>
     </div>
   );
@@ -1145,7 +1145,7 @@ function InfoItem({ label, value }: { label: string; value: string }) {
   return (
     <div className="rounded-lg border bg-slate-50 p-3">
       <p className="text-xs text-slate-500">{label}</p>
-      <p className="mt-1 font-medium text-slate-900">{value}</p>
+      <p className="mt-1 font-medium text-slate-900 dark:text-slate-100">{value}</p>
     </div>
   );
 }

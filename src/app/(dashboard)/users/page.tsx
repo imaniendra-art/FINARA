@@ -259,7 +259,7 @@ export default function UsersPage() {
             <CardTitle>Total User</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-semibold text-slate-900">{summary.total}</div>
+            <div className="text-2xl font-semibold text-slate-900 dark:text-slate-100">{summary.total}</div>
           </CardContent>
         </Card>
         <Card size="sm">
@@ -428,7 +428,7 @@ export default function UsersPage() {
 
                   return (
                     <tr key={user._id} className="border-b last:border-0">
-                      <td className="py-3 pr-4 font-medium text-slate-900">{user.name}</td>
+                      <td className="py-3 pr-4 font-medium text-slate-900 dark:text-slate-100">{user.name}</td>
                       <td className="py-3 pr-4">{user.email}</td>
                       <td className="py-3 pr-4">
                         <span className="inline-flex items-center gap-1">
@@ -493,7 +493,7 @@ export default function UsersPage() {
             <CardTitle>Reset Password</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="mb-4 rounded-md border bg-slate-50 p-3 text-sm text-slate-700">
+            <div className="mb-4 rounded-md border bg-slate-50 p-3 text-sm text-slate-700 dark:text-slate-300">
               Reset password untuk <strong>{resetPasswordUser.name}</strong> ({resetPasswordUser.email}).
             </div>
             <Form {...resetForm}>

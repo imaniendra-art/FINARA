@@ -433,7 +433,7 @@ export default function CashTransactionsPage() {
             <CardTitle>Draft</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-semibold text-slate-900">{summary.draft}</div>
+            <div className="text-2xl font-semibold text-slate-900 dark:text-slate-100">{summary.draft}</div>
           </CardContent>
         </Card>
         <Card size="sm">
@@ -441,7 +441,7 @@ export default function CashTransactionsPage() {
             <CardTitle>Posted</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-semibold text-slate-900">{summary.posted}</div>
+            <div className="text-2xl font-semibold text-slate-900 dark:text-slate-100">{summary.posted}</div>
           </CardContent>
         </Card>
       </div>
@@ -706,7 +706,7 @@ export default function CashTransactionsPage() {
                   {paginatedTransactions.map((transaction) => (
                     <tr key={transaction._id} className="border-b last:border-0 hover:bg-slate-50/50 transition-colors">
                       <td className="py-3 pr-4">{formatDate(transaction.date)}</td>
-                      <td className="py-3 pr-4 font-medium text-slate-900">{transaction.transactionNumber}</td>
+                      <td className="py-3 pr-4 font-medium text-slate-900 dark:text-slate-100">{transaction.transactionNumber}</td>
                       <td className="py-3 pr-4">{typeLabels[transaction.type]}</td>
                       <td className="py-3 pr-4">{transaction.cashOrBankAccountId?.name || "-"}</td>
                       <td className="py-3 pr-4">{transaction.accountId?.name || "-"}</td>
@@ -827,7 +827,7 @@ export default function CashTransactionsPage() {
             {selectedTransaction && (
               <div className="space-y-4">
                 <div>
-                  <div className="text-lg font-semibold text-slate-900">{selectedTransaction.transactionNumber}</div>
+                  <div className="text-lg font-semibold text-slate-900 dark:text-slate-100">{selectedTransaction.transactionNumber}</div>
                   <div className="text-sm text-slate-500">{typeLabels[selectedTransaction.type]}</div>
                 </div>
                 <div className="grid gap-3 text-sm">

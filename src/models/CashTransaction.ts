@@ -18,6 +18,12 @@ const CashTransactionSchema = new mongoose.Schema(
     },
     createdBy: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
     journalEntryId: { type: mongoose.Schema.Types.ObjectId, ref: "JournalEntry" },
+    origin: { type: String },
+    metadata: {
+      nim: String,
+      wisuda_ke: String,
+      nama: String,
+    },
   },
   { timestamps: true }
 );

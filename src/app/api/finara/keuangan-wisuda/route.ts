@@ -17,6 +17,8 @@ function authorize(request: Request) {
 }
 
 export async function POST(request: Request) {
+  console.log("Menerima request di endpoint /api/finara/keuangan-wisuda");
+  
   if (!authorize(request)) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
@@ -29,12 +31,14 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "NIM and Nama are required" }, { status: 400 });
     }
 
+    console.log("Menerima data dari PANDAWA untuk NIM:", nim);
+
     await dbConnect();
 
-    // Find a system user or the first admin to attribute this transaction to
-    const adminUser = await User.findOne({ role: "admin" }).select("_id").lean();
+    // Cari user dengan role "keuangan" (dari pengalaman SIPUANG), fallback ke admin_bauk / super_admin
+    const adminUser = await User.findOne({ role: { $in: ["keuangan", "admin_bauk", "staff_bauk", "super_admin"] } }).select("_id").lean();
     if (!adminUser) {
-      return NextResponse.json({ error: "No admin user found to attribute transaction" }, { status: 500 });
+      return NextResponse.json({ error: "No keuangan or admin user found to attribute transaction" }, { status: 500 });
     }
 
     // Find default accounts (Cash/Bank and Revenue/Counter account)

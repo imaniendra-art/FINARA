@@ -8,6 +8,7 @@ export const dashboardRoles: UserRole[] = [
   "super_admin",
   "admin_bauk",
   "staff_bauk",
+  "keuangan",
   "unit",
   "tendik",
   "dosen",

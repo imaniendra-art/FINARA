@@ -27,7 +27,7 @@ export async function PATCH(request: Request, { params }: { params: { id: string
     await transaction.save();
 
     // Trigger webhook back to PANDAWA
-    const pandawaUrl = process.env.PANDAWA_API_URL || "http://localhost:3000/api/finara-webhook/validate-payment";
+    const pandawaUrl = process.env.PANDAWA_API_URL || "http://localhost:3080/api/pandawa/update-status";
     
     if (transaction.metadata?.nim) {
       fetch(pandawaUrl, {

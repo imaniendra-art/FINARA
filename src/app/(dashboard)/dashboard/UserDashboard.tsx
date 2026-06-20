@@ -55,8 +55,8 @@ export default function UserDashboard({ session }: { session: Session | null }) 
       {/* Header section */}
       <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
         <div>
-          <h2 className="text-2xl font-bold text-slate-900 tracking-tight">Halo, {session?.user?.name}</h2>
-          <p className="text-sm font-medium text-slate-500">Panel Kendali Unit Kerja STIMI YAPMI</p>
+          <h2 className="text-2xl font-bold text-foreground tracking-tight">Halo, {session?.user?.name}</h2>
+          <p className="text-sm font-medium text-muted-foreground">Panel Kendali Unit Kerja STIMI YAPMI</p>
         </div>
       </div>
 
@@ -95,24 +95,24 @@ export default function UserDashboard({ session }: { session: Session | null }) 
       <div className="grid gap-4 sm:grid-cols-2">
         <Link 
           href="/budget-requests"
-          className="group flex flex-col items-center justify-center rounded-[20px] bg-white border border-slate-200 p-8 text-center shadow-sm transition-all hover:-translate-y-1 hover:shadow-md hover:border-blue-200"
+          className="group flex flex-col items-center justify-center rounded-[20px] bg-card border border-border p-8 text-center shadow-sm transition-all hover:-translate-y-1 hover:shadow-md hover:border-blue-500/50"
         >
-          <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-blue-50 text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+          <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 group-hover:bg-blue-600 group-hover:text-white transition-colors">
             <ListTodo className="h-8 w-8" />
           </div>
-          <h5 className="text-lg font-bold text-slate-900">Kelola Rencana (Proker)</h5>
-          <p className="mt-1 text-sm text-slate-500">Lihat riwayat dan pantau status pengajuan anggaran Anda</p>
+          <h5 className="text-lg font-bold text-foreground">Kelola Rencana (Proker)</h5>
+          <p className="mt-1 text-sm text-muted-foreground">Lihat riwayat dan pantau status pengajuan anggaran Anda</p>
         </Link>
 
         <Link 
           href="/budget-requests?action=create"
-          className="group flex flex-col items-center justify-center rounded-[20px] bg-white border border-slate-200 p-8 text-center shadow-sm transition-all hover:-translate-y-1 hover:shadow-md hover:border-emerald-200"
+          className="group flex flex-col items-center justify-center rounded-[20px] bg-card border border-border p-8 text-center shadow-sm transition-all hover:-translate-y-1 hover:shadow-md hover:border-emerald-500/50"
         >
-          <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-emerald-50 text-emerald-600 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
+          <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
             <FilePlus className="h-8 w-8" />
           </div>
-          <h5 className="text-lg font-bold text-slate-900">Ajukan Pencairan Dana</h5>
-          <p className="mt-1 text-sm text-slate-500">Buat permohonan pencairan dana atau kegiatan baru</p>
+          <h5 className="text-lg font-bold text-foreground">Ajukan Pencairan Dana</h5>
+          <p className="mt-1 text-sm text-muted-foreground">Buat permohonan pencairan dana atau kegiatan baru</p>
         </Link>
       </div>
     </div>

@@ -12,14 +12,11 @@ export function PageHeader({ title, description }: PageHeaderProps) {
   const router = useRouter();
 
   return (
-    <div className="relative mb-6 flex min-w-0 flex-1 overflow-hidden rounded-[28px] bg-[#0f2942] p-4 text-white shadow-[0_14px_36px_-18px_rgba(15,41,66,0.7)] md:p-5">
-      <div className="absolute inset-x-0 top-0 h-px bg-white/30" />
-      <div className="absolute -right-12 -top-16 h-40 w-40 rounded-full bg-emerald-300/20 blur-3xl" />
-      <div className="absolute bottom-0 right-0 h-24 w-52 bg-[radial-gradient(circle_at_bottom_right,rgba(56,189,248,0.16),transparent_65%)]" />
+    <div className="relative mb-6 flex min-w-0 flex-1 overflow-hidden rounded-[28px] bg-white dark:bg-slate-900 p-4 text-slate-800 dark:text-slate-200 border border-border shadow-sm md:p-5">
       <div className="relative flex min-w-0 items-center gap-4">
       <button
         onClick={() => router.push("/dashboard")}
-        className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border border-white/15 bg-white/10 text-white shadow-sm transition-all hover:bg-white hover:text-[#0f2942] cursor-pointer active:scale-95"
+        className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border border-border bg-slate-50 dark:bg-slate-800 text-slate-600 dark:text-slate-400 shadow-sm transition-all hover:bg-slate-100 dark:hover:bg-slate-700 hover:text-slate-900 dark:hover:text-slate-200 cursor-pointer active:scale-95"
         aria-label="Kembali ke Dashboard"
       >
         <ArrowLeft className="h-5 w-5" />

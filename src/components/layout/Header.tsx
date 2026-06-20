@@ -23,9 +23,15 @@ export function Header({ onMenuClick }: HeaderProps) {
         >
           <Menu className="w-5 h-5" />
         </button>
-        <h1 className="font-semibold text-base sm:text-lg text-foreground hidden sm:block">
-          Finance Administration and Reporting Application
-        </h1>
+        <div className="flex items-center gap-2">
+          <img src="/logo.png" alt="FINARA Logo" className="h-8 w-auto object-contain" />
+          <div className="flex flex-col justify-center">
+            <span className="font-extrabold text-base sm:text-lg leading-none tracking-tight text-foreground">FINARA</span>
+            <span className="hidden sm:inline-block text-[10px] sm:text-xs font-semibold text-muted-foreground mt-0.5">
+              Finance Administration and Reporting Application
+            </span>
+          </div>
+        </div>
       </div>
 
       <div className="flex items-center gap-4">

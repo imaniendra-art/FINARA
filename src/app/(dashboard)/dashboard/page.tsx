@@ -183,6 +183,24 @@ const ALL_MODULES = [
     allowedRoles: ["super_admin", "admin_bauk", "staff_bauk", "unit", "tendik", "dosen", "organisasi", "pimpinan", "auditor"],
     color: "text-[#047857] bg-[#ecfdf5] dark:bg-emerald-500/10 dark:text-emerald-400",
   },
+  {
+    title: "Keuangan PMB",
+    icon: WalletCards,
+    href: "/pmb-finance",
+    caption: "Integrasi Aplikasi PMB STIMI",
+    section: "anggaran",
+    allowedRoles: ["super_admin", "admin_bauk", "pimpinan", "auditor"],
+    color: "text-[#0369a1] bg-[#e0f2fe] dark:bg-sky-500/10 dark:text-sky-400",
+  },
+  {
+    title: "Keuangan Wisuda",
+    icon: WalletCards,
+    href: "/wisuda-finance",
+    caption: "Integrasi Aplikasi PANDAWA",
+    section: "anggaran",
+    allowedRoles: ["super_admin", "admin_bauk", "pimpinan", "auditor"],
+    color: "text-[#6d28d9] bg-[#ede9fe] dark:bg-violet-500/10 dark:text-violet-400",
+  },
   { 
     title: "Laporan Keuangan", 
     icon: BarChart3, 
@@ -338,98 +356,95 @@ export default function DashboardPage() {
   return (
     <div className="space-y-8">
       {/* 1. Executive finance hero */}
-      <section className="relative overflow-hidden rounded-[32px] bg-[#0f2942] p-5 text-white shadow-[0_18px_48px_-18px_rgba(15,41,66,0.65)] md:p-7">
-        <div className="absolute inset-x-0 top-0 h-px bg-white/30" />
-        <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-emerald-300/20 blur-3xl" />
-        <div className="absolute bottom-0 right-0 h-40 w-72 bg-[radial-gradient(circle_at_bottom_right,rgba(56,189,248,0.18),transparent_65%)]" />
-
+      <section className="relative overflow-hidden rounded-[32px] bg-white dark:bg-slate-900 p-5 text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-slate-800 shadow-sm md:p-7">
+        
         <div className="relative grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(360px,0.9fr)] lg:items-center">
           <div className="space-y-6">
             <div className="flex flex-wrap items-center gap-3">
-              <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-xs font-extrabold text-emerald-100 backdrop-blur">
-                <Calendar className="h-4 w-4 text-emerald-300" />
+              <div className="inline-flex items-center gap-2 rounded-full border border-emerald-200 dark:border-emerald-900/30 bg-emerald-50 dark:bg-emerald-900/10 px-4 py-2 text-xs font-extrabold text-emerald-700 dark:text-emerald-300">
+                <Calendar className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
                 <span>
                   {activePeriod ? `TA ${activePeriod.academicYear} - ${activePeriod.semester === "ganjil" ? "Ganjil" : "Genap"}` : "Periode akademik belum aktif"}
                 </span>
               </div>
-              <div className="rounded-full border border-white/15 bg-white/10 px-4 py-2 text-xs font-bold text-slate-200">
+              <div className="rounded-full border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 px-4 py-2 text-xs font-bold text-slate-700 dark:text-slate-300">
                 Dashboard BAUK
               </div>
             </div>
 
             <div className="max-w-3xl space-y-4">
-              <h1 className="text-3xl font-black leading-tight tracking-tight text-white md:text-5xl">
+              <h1 className="text-3xl font-black leading-tight tracking-tight text-slate-900 dark:text-white md:text-5xl">
                 Kendali kas, piutang, dan laporan dalam satu layar.
               </h1>
-              <p className="max-w-2xl text-base font-medium leading-relaxed text-slate-200 md:text-lg">
+              <p className="max-w-2xl text-base font-medium leading-relaxed text-slate-600 dark:text-slate-300 md:text-lg">
                 Selamat datang, {session?.user?.name || "Rekan FINARA"}. Fokus hari ini: pastikan saldo kas terbaca, arus masuk-keluar seimbang, dan tagihan aktif mudah ditindaklanjuti.
               </p>
             </div>
 
             <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
-              <div className="rounded-2xl border border-white/12 bg-white/10 p-4 backdrop-blur">
-                <p className="text-xs font-bold uppercase text-slate-300">Kas Tersedia</p>
-                <p className="mt-2 text-xl font-black text-white">{dashboardQuery.isLoading ? "..." : formatCompactCurrency(summary.totalCashBank)}</p>
+              <div className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/50 p-4">
+                <p className="text-xs font-bold uppercase text-slate-500 dark:text-slate-400">Kas Tersedia</p>
+                <p className="mt-2 text-xl font-black text-slate-900 dark:text-white">{dashboardQuery.isLoading ? "..." : formatCompactCurrency(summary.totalCashBank)}</p>
               </div>
-              <div className="rounded-2xl border border-emerald-300/20 bg-emerald-300/10 p-4 backdrop-blur">
-                <p className="text-xs font-bold uppercase text-emerald-100">Kas Masuk Bulan Ini</p>
-                <p className="mt-2 text-xl font-black text-emerald-100">{dashboardQuery.isLoading ? "..." : formatCompactCurrency(summary.monthIncome)}</p>
+              <div className="rounded-2xl border border-emerald-200 dark:border-emerald-900/30 bg-emerald-50 dark:bg-emerald-900/10 p-4">
+                <p className="text-xs font-bold uppercase text-emerald-700 dark:text-emerald-400">Kas Masuk Bulan Ini</p>
+                <p className="mt-2 text-xl font-black text-emerald-700 dark:text-emerald-400">{dashboardQuery.isLoading ? "..." : formatCompactCurrency(summary.monthIncome)}</p>
               </div>
-              <div className="rounded-2xl border border-rose-300/20 bg-rose-300/10 p-4 backdrop-blur">
-                <p className="text-xs font-bold uppercase text-rose-100">Kas Keluar Bulan Ini</p>
-                <p className="mt-2 text-xl font-black text-rose-100">{dashboardQuery.isLoading ? "..." : formatCompactCurrency(summary.monthExpense)}</p>
+              <div className="rounded-2xl border border-rose-200 dark:border-rose-900/30 bg-rose-50 dark:bg-rose-900/10 p-4">
+                <p className="text-xs font-bold uppercase text-rose-700 dark:text-rose-400">Kas Keluar Bulan Ini</p>
+                <p className="mt-2 text-xl font-black text-rose-700 dark:text-rose-400">{dashboardQuery.isLoading ? "..." : formatCompactCurrency(summary.monthExpense)}</p>
               </div>
-              <div className="rounded-2xl border border-amber-300/20 bg-amber-300/10 p-4 backdrop-blur">
-                <p className="text-xs font-bold uppercase text-amber-100">Piutang Aktif</p>
-                <p className="mt-2 text-xl font-black text-amber-100">{dashboardQuery.isLoading ? "..." : formatCompactCurrency(summary.totalReceivable)}</p>
+              <div className="rounded-2xl border border-amber-200 dark:border-amber-900/30 bg-amber-50 dark:bg-amber-900/10 p-4">
+                <p className="text-xs font-bold uppercase text-amber-700 dark:text-amber-400">Piutang Aktif</p>
+                <p className="mt-2 text-xl font-black text-amber-700 dark:text-amber-400">{dashboardQuery.isLoading ? "..." : formatCompactCurrency(summary.totalReceivable)}</p>
               </div>
             </div>
           </div>
 
-          <div className="rounded-[28px] border border-white/15 bg-white/[0.08] p-5 backdrop-blur-md">
+          <div className="rounded-[28px] border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 p-5">
             <div className="mb-6 flex items-center justify-between">
               <div>
-                <p className="text-xs font-bold uppercase tracking-wide text-slate-300">Visual Arus Kas</p>
-                <h2 className="mt-1 text-lg font-black text-white">Pemasukan vs Pengeluaran</h2>
+                <p className="text-xs font-bold uppercase tracking-wide text-slate-500 dark:text-slate-400">Visual Arus Kas</p>
+                <h2 className="mt-1 text-lg font-black text-slate-900 dark:text-white">Pemasukan vs Pengeluaran</h2>
               </div>
-              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white text-[#0f2942]">
+              <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300">
                 <ArrowRightLeft className="h-5 w-5" />
               </div>
             </div>
 
-            <div className="relative h-52 overflow-hidden rounded-3xl bg-slate-950/35 p-5">
-              <div className="absolute inset-x-5 top-1/2 h-px bg-white/10" />
-              <div className="absolute inset-y-5 left-1/2 w-px bg-white/10" />
-              <div className="absolute left-6 top-8 h-20 w-20 animate-pulse rounded-full border border-emerald-300/30 bg-emerald-300/10" />
-              <div className="absolute bottom-8 right-8 h-24 w-24 animate-pulse rounded-full border border-sky-300/25 bg-sky-300/10 [animation-delay:450ms]" />
+            <div className="relative h-52 overflow-hidden rounded-3xl bg-slate-100 dark:bg-slate-950/35 p-5">
+              <div className="absolute inset-x-5 top-1/2 h-px bg-slate-200 dark:bg-white/10" />
+              <div className="absolute inset-y-5 left-1/2 w-px bg-slate-200 dark:bg-white/10" />
+              <div className="absolute left-6 top-8 h-20 w-20 animate-pulse rounded-full border border-emerald-400/30 dark:border-emerald-300/30 bg-emerald-400/10 dark:bg-emerald-300/10" />
+              <div className="absolute bottom-8 right-8 h-24 w-24 animate-pulse rounded-full border border-sky-400/25 dark:border-sky-300/25 bg-sky-400/10 dark:bg-sky-300/10 [animation-delay:450ms]" />
 
               <div className="relative z-10 flex h-full items-end gap-3">
                 {[38, 68, 45, 82, 54, 74].map((height, index) => (
                   <div key={height + index} className="flex flex-1 flex-col items-center gap-2">
                     <div className="flex h-36 w-full items-end gap-1.5">
                       <div
-                        className="w-full animate-[pulse_2.4s_ease-in-out_infinite] rounded-t-full bg-emerald-300"
+                        className="w-full animate-[pulse_2.4s_ease-in-out_infinite] rounded-t-full bg-emerald-400 dark:bg-emerald-300"
                         style={{ height: `${height}%`, animationDelay: `${index * 120}ms` }}
                       />
                       <div
-                        className="w-full animate-[pulse_2.8s_ease-in-out_infinite] rounded-t-full bg-rose-300/70"
+                        className="w-full animate-[pulse_2.8s_ease-in-out_infinite] rounded-t-full bg-rose-400/80 dark:bg-rose-300/70"
                         style={{ height: `${Math.max(18, height - 24)}%`, animationDelay: `${index * 160}ms` }}
                       />
                     </div>
-                    <span className="h-1.5 w-1.5 rounded-full bg-white/45" />
+                    <span className="h-1.5 w-1.5 rounded-full bg-slate-300 dark:bg-white/45" />
                   </div>
                 ))}
               </div>
             </div>
 
             <div className="mt-5 grid grid-cols-2 gap-3 text-sm font-bold">
-              <div className="rounded-2xl bg-sky-300/10 px-4 py-3 text-sky-100">
-                <span className="block text-xs uppercase tracking-wide text-sky-200/80">Dana Bank</span>
-                <span className="mt-1 block text-lg font-black">{dashboardQuery.isLoading ? "..." : formatCompactCurrency(summary.bankBalance)}</span>
+              <div className="rounded-2xl bg-sky-50 dark:bg-sky-900/20 px-4 py-3 text-sky-700 dark:text-sky-100">
+                <span className="block text-xs uppercase tracking-wide text-sky-600 dark:text-sky-300">Dana Bank</span>
+                <span className="mt-1 block text-lg font-black text-sky-800 dark:text-sky-50">{dashboardQuery.isLoading ? "..." : formatCompactCurrency(summary.bankBalance)}</span>
               </div>
-              <div className="rounded-2xl bg-emerald-300/10 px-4 py-3 text-emerald-100">
-                <span className="block text-xs uppercase tracking-wide text-emerald-200/80">Kas Kecil / Cash</span>
-                <span className="mt-1 block text-lg font-black">{dashboardQuery.isLoading ? "..." : formatCompactCurrency(summary.pettyCashBalance)}</span>
+              <div className="rounded-2xl bg-emerald-50 dark:bg-emerald-900/20 px-4 py-3 text-emerald-700 dark:text-emerald-100">
+                <span className="block text-xs uppercase tracking-wide text-emerald-600 dark:text-emerald-300">Kas Kecil / Cash</span>
+                <span className="mt-1 block text-lg font-black text-emerald-800 dark:text-emerald-50">{dashboardQuery.isLoading ? "..." : formatCompactCurrency(summary.pettyCashBalance)}</span>
               </div>
             </div>
           </div>

@@ -38,6 +38,8 @@ const navItems = [
   { title: "Buku Besar", href: "/ledger", icon: BookOpen, allowedRoles: ["super_admin", "admin_bauk", "pimpinan", "auditor"] },
   { title: "Neraca Saldo", href: "/trial-balance", icon: BookOpen, allowedRoles: ["super_admin", "admin_bauk", "pimpinan", "auditor"] },
   { title: "Permintaan Anggaran", href: "/budget-requests", icon: WalletCards, allowedRoles: ["super_admin", "admin_bauk", "staff_bauk", "unit", "tendik", "dosen", "organisasi", "pimpinan", "auditor"] },
+  { title: "Keuangan PMB", href: "/pmb-finance", icon: WalletCards, allowedRoles: ["super_admin", "admin_bauk", "pimpinan", "auditor"] },
+  { title: "Keuangan Wisuda", href: "/wisuda-finance", icon: WalletCards, allowedRoles: ["super_admin", "admin_bauk", "pimpinan", "auditor"] },
   { title: "Laporan", href: "/reports", icon: BarChart3, allowedRoles: ["super_admin", "admin_bauk", "pimpinan", "auditor"] },
   { title: "User & Role", href: "/users", icon: Users, allowedRoles: ["super_admin"] },
   { title: "Pengaturan", href: "/settings", icon: Settings, allowedRoles: ["super_admin", "admin_bauk"] },
@@ -50,18 +52,13 @@ export function Sidebar() {
   const visibleNavItems = navItems.filter((item) => !item.allowedRoles || item.allowedRoles.includes(userRole));
 
   return (
-    <aside className="w-64 bg-slate-900 text-white flex flex-col h-screen hidden md:flex border-r border-slate-800">
-      <div className="h-16 flex items-center px-6 border-b border-slate-800">
-        <div className="flex items-center gap-2">
-          <div className="w-8 h-8 bg-blue-600 rounded-md flex items-center justify-center font-bold text-lg">
-            F
-          </div>
-          <span className="font-bold text-xl tracking-tight">FINARA</span>
-        </div>
+    <aside className="w-64 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 flex flex-col h-screen border-r border-slate-200 dark:border-slate-800 overflow-hidden">
+      <div className="h-16 flex items-center px-6 border-b border-slate-200 dark:border-slate-800">
+        {/* Branding dihapus dari sini untuk menghindari duplikasi dengan header utama */}
       </div>
       
-      <div className="flex-1 overflow-y-auto py-4">
-        <nav className="space-y-1 px-3">
+      <div className="flex-1 overflow-y-auto py-3">
+        <nav className="space-y-0.5 px-3">
           {visibleNavItems.map((item) => {
             const isActive = pathname === item.href || pathname.startsWith(`${item.href}/`);
             return (
@@ -69,22 +66,22 @@ export function Sidebar() {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "flex items-center gap-3 px-3 py-3 rounded-md transition-colors text-sm sm:text-base font-medium",
+                  "flex items-center gap-2.5 px-3 py-2 rounded-md transition-colors text-xs sm:text-[13px] font-medium",
                   isActive 
-                    ? "bg-blue-600 text-white" 
-                    : "text-slate-300 hover:bg-slate-800 hover:text-white"
+                    ? "bg-blue-50 text-blue-700 dark:bg-[#1b3d5f] dark:text-white font-bold" 
+                    : "text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-[#132c47]"
                 )}
               >
-                <item.icon className="w-5 h-5" />
-                {item.title}
+                <item.icon className="w-4 h-4 shrink-0" />
+                <span className="truncate">{item.title}</span>
               </Link>
             );
           })}
         </nav>
       </div>
 
-      <div className="p-4 border-t border-slate-800">
-        <div className="text-sm text-slate-500">
+      <div className="pt-4 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 p-6 mt-auto">
+        <div className="text-sm text-slate-900 dark:text-white text-center">
           STIMI YAPMI Makassar &copy; {new Date().getFullYear()}
         </div>
       </div>

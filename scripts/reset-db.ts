@@ -38,7 +38,7 @@ async function resetDb() {
     
     const superAdmin = await User.create({
       name: "Super Admin",
-      email: "admin@stimi.ac.id",
+      email: "admin@finara.com",
       password: adminPassword,
       role: "super_admin",
       isActive: true,

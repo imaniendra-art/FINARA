@@ -3,9 +3,7 @@ import { getServerSession } from "next-auth/next";
 import { authOptions } from "@/lib/auth";
 import dbConnect from "@/lib/db";
 import CashTransaction from "@/models/CashTransaction";
-import { writeFile, mkdir } from "fs/promises";
-import { join } from "path";
-import { existsSync } from "fs";
+import { uploadToMinio, generatePresignedUrl } from "@/lib/s3";
 
 export async function POST(
   request: NextRequest,
@@ -46,16 +44,8 @@ export async function POST(
     const originalExtension = file.name.split('.').pop();
     const filename = `receipt-${id}-${uniqueSuffix}.${originalExtension}`;
 
-    // Ensure directory exists
-    const uploadDir = join(process.cwd(), "public", "uploads", "receipts");
-    if (!existsSync(uploadDir)) {
-      await mkdir(uploadDir, { recursive: true });
-    }
-
-    const filepath = join(uploadDir, filename);
-    await writeFile(filepath, buffer);
-
-    const attachmentUrl = `/uploads/receipts/${filename}`;
+    const key = `receipts/${filename}`;
+    const attachmentUrl = await uploadToMinio(buffer, key, file.type);
 
     await dbConnect();
     
@@ -70,9 +60,11 @@ export async function POST(
       return NextResponse.json({ error: "Transaksi tidak ditemukan" }, { status: 404 });
     }
 
+    const presignedUrl = await generatePresignedUrl(attachmentUrl);
+
     return NextResponse.json({ 
       success: true, 
-      attachmentUrl,
+      attachmentUrl: presignedUrl,
       message: "Bukti transaksi berhasil diunggah" 
     });
   } catch (error: unknown) {

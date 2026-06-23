@@ -58,6 +58,7 @@ type CashTransactionRow = {
   description: string;
   notes?: string;
   status: CashTransactionStatus;
+  attachmentUrl?: string;
   journalEntryId?: {
     _id: string;
     entryNumber: string;
@@ -318,6 +319,36 @@ export default function CashTransactionsPage() {
       await queryClient.invalidateQueries({ queryKey: ["cash-transactions"] });
     },
   });
+
+  const uploadReceiptMutation = useMutation({
+    mutationFn: async ({ id, file }: { id: string; file: File }) => {
+      const formData = new FormData();
+      formData.append("file", file);
+      
+      const response = await fetch(`/api/cash-transactions/${id}/upload-receipt`, {
+        method: "POST",
+        body: formData,
+      });
+      const data = await response.json();
+      
+      if (!response.ok) {
+        throw new Error(data.error || "Gagal mengunggah bukti transaksi.");
+      }
+      return data;
+    },
+    onSuccess: async () => {
+      await queryClient.invalidateQueries({ queryKey: ["cash-transactions"] });
+    },
+  });
+
+  const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>, transactionId: string) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      uploadReceiptMutation.mutate({ id: transactionId, file });
+      // Reset input
+      e.target.value = '';
+    }
+  };
 
 
   const summary = useMemo(() => {
@@ -873,11 +904,52 @@ export default function CashTransactionsPage() {
                     <span className="text-slate-500">Jurnal</span>
                     <p>{selectedTransaction.journalEntryId?.entryNumber || "-"}</p>
                   </div>
+                  
+                  {uploadReceiptMutation.error && (
+                    <div className="text-xs text-red-600 bg-red-50 p-2 rounded-md border border-red-100">
+                      {uploadReceiptMutation.error.message}
+                    </div>
+                  )}
                 </div>
+                
+                <div className="flex flex-wrap gap-2 pt-2">
+                  {selectedTransaction.attachmentUrl ? (
+                    <Button 
+                      type="button" 
+                      variant="secondary" 
+                      onClick={() => window.open(selectedTransaction.attachmentUrl, "_blank")}
+                    >
+                      <Eye className="mr-2 h-4 w-4" />
+                      Lihat Bukti Transaksi
+                    </Button>
+                  ) : null}
+                  
+                  {canManage && (
+                    <div className="relative overflow-hidden inline-block">
+                      <Button type="button" variant="outline" disabled={uploadReceiptMutation.isPending}>
+                        {uploadReceiptMutation.isPending ? (
+                          <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                        ) : (
+                          <Plus className="mr-2 h-4 w-4" />
+                        )}
+                        Upload Bukti Transaksi
+                      </Button>
+                      <input 
+                        type="file" 
+                        accept=".jpg,.jpeg,.png,.pdf"
+                        onChange={(e) => handleFileUpload(e, selectedTransaction._id)}
+                        disabled={uploadReceiptMutation.isPending}
+                        className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                        title="Upload Bukti"
+                      />
+                    </div>
+                  )}
+                </div>
+
                 {canManage && selectedTransaction.status === "draft" && (
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-2 border-t pt-4">
                     <Button type="button" variant="outline" onClick={() => startEdit(selectedTransaction)}>
-                      <Edit2 />
+                      <Edit2 className="mr-2 h-4 w-4" />
                       Edit
                     </Button>
                     <Button
@@ -885,7 +957,7 @@ export default function CashTransactionsPage() {
                       disabled={postMutation.isPending}
                       onClick={() => postMutation.mutate(selectedTransaction._id)}
                     >
-                      {postMutation.isPending ? <Loader2 className="animate-spin" /> : <CheckCircle2 />}
+                      {postMutation.isPending ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <CheckCircle2 className="mr-2 h-4 w-4" />}
                       Posting
                     </Button>
                   </div>

@@ -19,6 +19,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
+import { PageHeader } from "@/components/layout/PageHeader";
 import { Input } from "@/components/ui/input";
 
 const settingSchema = z.object({
@@ -459,11 +460,7 @@ export default function SettingsPage() {
 
   return (
     <div className="space-y-6">
-      <PageTitle />
-      <Button type="button" variant="outline" onClick={() => router.back()}>
-        <ArrowLeft />
-        Back
-      </Button>
+      <PageHeader title="Pengaturan" description="Konfigurasi dasar aplikasi FINARA." />
       {toast && (
         <div className="fixed right-6 top-6 z-50 rounded-lg bg-slate-900 px-4 py-3 text-sm text-white shadow-lg">
           {toast}
@@ -1030,14 +1027,7 @@ export default function SettingsPage() {
   );
 }
 
-function PageTitle() {
-  return (
-    <div>
-      <h1 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100">Pengaturan</h1>
-      <p className="text-slate-500">Konfigurasi dasar aplikasi FINARA.</p>
-    </div>
-  );
-}
+
 
 function SettingFormShell({
   title,

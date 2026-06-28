@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useSession } from "next-auth/react";
 import { usePathname } from "next/navigation";
+import { useQuery } from "@tanstack/react-query";
 import { 
   LayoutDashboard, 
   Users, 
@@ -37,9 +38,9 @@ const navItems = [
   { title: "Jurnal Umum", href: "/journals", icon: BookOpen, allowedRoles: ["super_admin", "admin_bauk", "staff_bauk", "auditor"] },
   { title: "Buku Besar", href: "/ledger", icon: BookOpen, allowedRoles: ["super_admin", "admin_bauk", "pimpinan", "auditor"] },
   { title: "Neraca Saldo", href: "/trial-balance", icon: BookOpen, allowedRoles: ["super_admin", "admin_bauk", "pimpinan", "auditor"] },
-  { title: "Permintaan Anggaran", href: "/budget-requests", icon: WalletCards, allowedRoles: ["super_admin", "admin_bauk", "staff_bauk", "unit", "tendik", "dosen", "organisasi", "pimpinan", "auditor"] },
-  { title: "Keuangan PMB", href: "/pmb-finance", icon: WalletCards, allowedRoles: ["super_admin", "admin_bauk", "pimpinan", "auditor"] },
-  { title: "Keuangan Wisuda", href: "/wisuda-finance", icon: WalletCards, allowedRoles: ["super_admin", "admin_bauk", "pimpinan", "auditor"] },
+  { title: "KASPRO", href: "/budget-requests", icon: WalletCards, allowedRoles: ["super_admin", "admin_bauk", "staff_bauk", "unit", "tendik", "dosen", "organisasi", "pimpinan", "auditor"] },
+  { title: "PMB STIMI", href: "/pmb-finance", icon: WalletCards, allowedRoles: ["super_admin", "admin_bauk", "pimpinan", "auditor"] },
+  { title: "PANDAWA", href: "/wisuda-finance", icon: WalletCards, allowedRoles: ["super_admin", "admin_bauk", "pimpinan", "auditor"] },
   { title: "Laporan", href: "/reports", icon: BarChart3, allowedRoles: ["super_admin", "admin_bauk", "pimpinan", "auditor"] },
   { title: "User & Role", href: "/users", icon: Users, allowedRoles: ["super_admin"] },
   { title: "Pengaturan", href: "/settings", icon: Settings, allowedRoles: ["super_admin", "admin_bauk"] },
@@ -50,6 +51,17 @@ export function Sidebar() {
   const { data: session } = useSession();
   const userRole = session?.user?.role ?? "";
   const visibleNavItems = navItems.filter((item) => !item.allowedRoles || item.allowedRoles.includes(userRole));
+
+  const { data: pendingData } = useQuery({
+    queryKey: ["kaspro-pending-count"],
+    queryFn: async () => {
+      const res = await fetch("/api/kaspro-requests/pending-count");
+      if (!res.ok) return { count: 0 };
+      return res.json();
+    },
+    refetchInterval: 15000, // Check every 15 seconds
+  });
+  const pendingCount = pendingData?.count || 0;
 
   return (
     <aside className="w-64 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 flex flex-col h-screen border-r border-slate-200 dark:border-slate-800 overflow-hidden">
@@ -73,7 +85,12 @@ export function Sidebar() {
                 )}
               >
                 <item.icon className="w-4 h-4 shrink-0" />
-                <span className="truncate">{item.title}</span>
+                <span className="truncate flex-1">{item.title}</span>
+                {item.title === "KASPRO" && pendingCount > 0 && (
+                  <span className="ml-auto bg-red-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full shrink-0 min-w-5 text-center">
+                    {pendingCount > 99 ? '99+' : pendingCount}
+                  </span>
+                )}
               </Link>
             );
           })}

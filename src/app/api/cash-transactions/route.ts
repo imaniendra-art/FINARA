@@ -9,6 +9,8 @@ import AuditLog from "@/models/AuditLog";
 import CashTransaction from "@/models/CashTransaction";
 import { generatePresignedUrl } from "@/lib/s3";
 
+export const dynamic = "force-dynamic";
+
 type AccountSnapshot = {
   _id: mongoose.Types.ObjectId;
   type: string;

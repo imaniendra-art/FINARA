@@ -914,14 +914,10 @@ export default function CashTransactionsPage() {
                 
                 <div className="flex flex-wrap gap-2 pt-2">
                   {selectedTransaction.attachmentUrl ? (
-                    <Button 
-                      type="button" 
-                      variant="secondary" 
-                      onClick={() => window.open(selectedTransaction.attachmentUrl, "_blank")}
-                    >
-                      <Eye className="mr-2 h-4 w-4" />
-                      Lihat Bukti Transaksi
-                    </Button>
+                    <div className="mt-4 border rounded-md overflow-hidden">
+                      <p className="p-2 text-sm font-semibold bg-gray-50 border-b">Bukti Transaksi:</p>
+                      <img src={selectedTransaction.attachmentUrl} alt="Bukti Transaksi" className="w-full h-auto object-contain max-h-[500px]" />
+                    </div>
                   ) : null}
                   
                   {canManage && (

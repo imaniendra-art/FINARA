@@ -175,7 +175,7 @@ const ALL_MODULES = [
     color: "text-[#ea580c] bg-[#fff7ed] dark:bg-orange-500/10 dark:text-orange-400",
   },
   {
-    title: "Permintaan Anggaran",
+    title: "KASPRO",
     icon: WalletCards,
     href: "/budget-requests",
     caption: "Pengajuan, approval, pencairan, dan LPJ",
@@ -184,7 +184,7 @@ const ALL_MODULES = [
     color: "text-[#047857] bg-[#ecfdf5] dark:bg-emerald-500/10 dark:text-emerald-400",
   },
   {
-    title: "Keuangan PMB",
+    title: "PMB STIMI",
     icon: WalletCards,
     href: "/pmb-finance",
     caption: "Integrasi Aplikasi PMB STIMI",
@@ -193,7 +193,7 @@ const ALL_MODULES = [
     color: "text-[#0369a1] bg-[#e0f2fe] dark:bg-sky-500/10 dark:text-sky-400",
   },
   {
-    title: "Keuangan Wisuda",
+    title: "PANDAWA",
     icon: WalletCards,
     href: "/wisuda-finance",
     caption: "Integrasi Aplikasi PANDAWA",
@@ -326,6 +326,18 @@ export default function DashboardPage() {
     queryFn: fetchAcademicPeriods,
     enabled: canReadFinanceDashboard,
   });
+
+  const kasproPendingQuery = useQuery({
+    queryKey: ["kaspro-pending-count"],
+    queryFn: async () => {
+      const res = await fetch("/api/kaspro-requests/pending-count");
+      if (!res.ok) return { count: 0 };
+      return res.json();
+    },
+    enabled: canReadFinanceDashboard,
+    refetchInterval: 15000,
+  });
+  const pendingCount = kasproPendingQuery.data?.count || 0;
 
   const dashboard = dashboardQuery.data;
   const summary = dashboard?.summary ?? emptySummary;
@@ -524,8 +536,13 @@ export default function DashboardPage() {
                             <Icon className="h-6 w-6" />
                           </div>
                           <div className="min-w-0">
-                            <h4 className="text-base font-extrabold text-foreground group-hover:text-primary transition-colors leading-snug">
+                            <h4 className="text-base font-extrabold text-foreground group-hover:text-primary transition-colors leading-snug flex items-center gap-2">
                               {item.title}
+                              {item.title === "KASPRO" && pendingCount > 0 && (
+                                <span className="bg-red-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full shrink-0">
+                                  {pendingCount > 99 ? '99+' : pendingCount}
+                                </span>
+                              )}
                             </h4>
                             <p className="text-sm text-muted-foreground font-medium mt-1 leading-snug">
                               {item.caption}

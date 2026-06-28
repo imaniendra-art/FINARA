@@ -448,7 +448,7 @@ export default function SettingsPage() {
   if (tabs.length === 0) {
     return (
       <div className="space-y-6">
-        <PageTitle />
+        <PageHeader title="Pengaturan" description="Kelola sistem" />
         <Card>
           <CardContent>
             <p className="text-sm text-slate-500">Role Anda tidak memiliki akses ke menu Pengaturan.</p>

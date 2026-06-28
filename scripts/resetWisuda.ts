@@ -15,7 +15,7 @@ const CashTransaction = mongoose.models.CashTransaction || mongoose.model("CashT
 
 async function reset() {
   try {
-    await mongoose.connect(MONGODB_URI);
+    await mongoose.connect(MONGODB_URI as string);
     console.log("Connected to MongoDB FINARA");
 
     const result = await CashTransaction.deleteMany({ origin: "PANDAWA" });

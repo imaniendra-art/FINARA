@@ -8,10 +8,11 @@ const API_KEY = process.env.PANDAWA_FINARA_SECRET || "pandawa-secret-key-123";
 // but for the sake of simplicity, we will just ensure they are logged in if this is called from the client
 // Or we can rely on NextAuth session. We will assume standard FINARA API authentication later.
 
-export async function PATCH(request: Request, { params }: { params: { id: string } }) {
+export async function PATCH(request: Request, { params }: { params: Promise<{ id: string }> }) {
   try {
     await dbConnect();
-    const { id } = params;
+    const resolvedParams = await params;
+    const { id } = resolvedParams;
 
     const transaction = await CashTransaction.findById(id);
     if (!transaction) {

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Providers } from "@/components/providers";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
   title: "FINARA - Finance Administration and Reporting Application",
@@ -16,6 +17,7 @@ export default function RootLayout({
     <html lang="id" className="h-full antialiased" suppressHydrationWarning>
       <body className="min-h-full flex flex-col font-sans text-base antialiased">
         <Providers>{children}</Providers>
+        <SpeedInsights />
       </body>
     </html>
   );

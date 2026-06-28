@@ -13,7 +13,6 @@
     "test:finance": "tsx scripts/e2e-finance-flow.ts",
     "test:background": "tsx scripts/e2e-background-testing.ts",
     "seed": "tsx scripts/seed.ts",
-
     "seed:accounts": "tsx scripts/seed-chart-of-accounts.ts",
     "seed:journals": "tsx scripts/seed-dummy-journals.ts",
     "import:kip-2025-genap": "tsx scripts/import-kip-2025-genap.ts"
@@ -25,6 +24,7 @@
     "@radix-ui/react-label": "^2.1.8",
     "@radix-ui/react-slot": "^1.2.4",
     "@tanstack/react-query": "^5.100.11",
+    "@vercel/speed-insights": "^2.0.0",
     "bcrypt": "^6.0.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",

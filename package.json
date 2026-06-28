@@ -13,7 +13,7 @@
     "test:finance": "tsx scripts/e2e-finance-flow.ts",
     "test:background": "tsx scripts/e2e-background-testing.ts",
     "seed": "tsx scripts/seed.ts",
-    "seed:beta-users": "tsx scripts/seed-beta-users.ts",
+
     "seed:accounts": "tsx scripts/seed-chart-of-accounts.ts",
     "seed:journals": "tsx scripts/seed-dummy-journals.ts",
     "import:kip-2025-genap": "tsx scripts/import-kip-2025-genap.ts"

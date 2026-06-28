@@ -6,6 +6,7 @@ import { cashTransactionInputSchema, objectIdSchema } from "@/lib/validation";
 import Account from "@/models/Account";
 import AuditLog from "@/models/AuditLog";
 import CashTransaction from "@/models/CashTransaction";
+import { generatePresignedUrl } from "@/lib/s3";
 
 type RouteContext = {
   params: Promise<{ id: string }>;
@@ -56,6 +57,10 @@ export async function GET(_request: Request, context: RouteContext) {
 
   if (!transaction) {
     return NextResponse.json({ error: "Transaksi kas tidak ditemukan." }, { status: 404 });
+  }
+
+  if (transaction.attachmentUrl) {
+    transaction.attachmentUrl = (await generatePresignedUrl(transaction.attachmentUrl)) ?? undefined;
   }
 
   return NextResponse.json({ transaction });

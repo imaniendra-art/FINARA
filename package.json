@@ -15,9 +15,12 @@
     "seed": "tsx scripts/seed.ts",
     "seed:beta-users": "tsx scripts/seed-beta-users.ts",
     "seed:accounts": "tsx scripts/seed-chart-of-accounts.ts",
+    "seed:journals": "tsx scripts/seed-dummy-journals.ts",
     "import:kip-2025-genap": "tsx scripts/import-kip-2025-genap.ts"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.1036.0",
+    "@aws-sdk/s3-request-presigner": "^3.1036.0",
     "@hookform/resolvers": "^5.2.2",
     "@radix-ui/react-label": "^2.1.8",
     "@radix-ui/react-slot": "^1.2.4",

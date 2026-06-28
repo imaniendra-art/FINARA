@@ -7,6 +7,7 @@ import { cashTransactionInputSchema } from "@/lib/validation";
 import Account from "@/models/Account";
 import AuditLog from "@/models/AuditLog";
 import CashTransaction from "@/models/CashTransaction";
+import { generatePresignedUrl } from "@/lib/s3";
 
 type AccountSnapshot = {
   _id: mongoose.Types.ObjectId;
@@ -78,8 +79,21 @@ export async function GET(request: Request) {
     Account.find({ isActive: true }).sort({ code: 1 }).select("code name type").lean(),
   ]);
 
+  // Generate presigned URLs for transactions
+  const transactionsWithUrls = await Promise.all(
+    transactions.map(async (t) => {
+      if (t.attachmentUrl) {
+        return {
+          ...t,
+          attachmentUrl: (await generatePresignedUrl(t.attachmentUrl)) ?? undefined,
+        };
+      }
+      return t;
+    })
+  );
+
   return NextResponse.json({
-    transactions,
+    transactions: transactionsWithUrls,
     cashAccounts,
     counterAccounts,
     options: {

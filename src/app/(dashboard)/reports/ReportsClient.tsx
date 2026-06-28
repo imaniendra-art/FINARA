@@ -255,7 +255,7 @@ export function ReportsClient() {
 
   return (
     <div className="space-y-6">
-      <PageHeader title="Laporan" description="Piutang mahasiswa dan pembayaran berdasarkan filter akademik." />
+      <PageHeader title="Laporan Tagihan & Piutang Mahasiswa" description="Pantau performa pembayaran dan sisa piutang mahasiswa (Accounts Receivable)." />
 
       <Card>
         <CardHeader>

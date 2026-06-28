@@ -33,10 +33,10 @@ async function seed() {
     // 1. Seed Super Admin
     const adminPassword = await bcrypt.hash(seedAdminPassword, 10);
     const superAdmin = await User.findOneAndUpdate(
-      { email: "admin@stimi.edu" },
+      { email: "admin.keu@stimiyapmim.ac.id" },
       {
-        name: "Super Admin",
-        email: "admin@stimi.edu",
+        name: "Admin STIMI",
+        email: "admin.keu@stimiyapmim.ac.id",
         password: adminPassword,
         role: "super_admin",
         isActive: true,

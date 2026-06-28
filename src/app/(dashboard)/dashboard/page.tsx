@@ -204,7 +204,7 @@ const ALL_MODULES = [
   { 
     title: "Laporan Keuangan", 
     icon: BarChart3, 
-    href: "/reports", 
+    href: "/income-statement", 
     caption: "Ekspor neraca dan laba rugi", 
     section: "laporan", 
     allowedRoles: ["super_admin", "admin_bauk", "pimpinan", "auditor"],
